@@ -1,4 +1,4 @@
-import Document, {Head, Main, NextScript} from "next/document"
+import Document, { Head, Main, NextScript } from "next/document"
 import React from "react"
 import {StyleSheetServer} from "aphrodite"
 
@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
     return (
       <html>
       <Head>
-        <title>Travel Guide</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200&display=swap&subset=cyrillic" />
         <link rel="icon" href="/favicon.ico"/>
         <style data-aphrodite dangerouslySetInnerHTML={{__html: this.props.css.content}}/>
       </Head>

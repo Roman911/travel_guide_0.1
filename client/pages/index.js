@@ -1,7 +1,9 @@
 import React from "react"
+import { MainLayout } from "../Components"
 
 export default function Home() {
-  return <div>
+  return <MainLayout title='Home' >
       123
-    </div>
+    <h1>cdslmldksl</h1>
+    </MainLayout>
 }
