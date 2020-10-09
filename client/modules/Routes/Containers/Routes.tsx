@@ -9,6 +9,6 @@ export const UseRoutes = () => {
   const { data } = user
 
   return <div>
-    { data ? <IsActiveUser /> : <IsNotActiveUser /> }
+    { data ? <IsActiveUser data={ data } /> : <IsNotActiveUser /> }
   </div>
 }

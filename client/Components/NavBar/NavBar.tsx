@@ -4,7 +4,7 @@ import { css } from 'aphrodite/no-important'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import baseStyles from '../../styles'
-import styles from './navBarStyles'
+import styles from './styles'
 import { Links } from "./config"
 import { UseRoutes } from "../../modules"
 

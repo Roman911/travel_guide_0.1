@@ -5,7 +5,7 @@ export const shadows = {
 
 export const background = {
   main: '#f8f8f8',
-  backgroundModal: '#303335'
+  modal: '#303335'
 }
 
 export const socSet = {
