@@ -26,6 +26,6 @@ export const text = {
 }
 
 export const icons = '#707070'
-export const errors = '#ff2100'
+export const error = '#ff2100'
 export const isOk = '#61c144'
 export const btn = '#cb2c3b'

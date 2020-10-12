@@ -1,10 +1,13 @@
 import Head from "next/head"
 import React from "react"
-import { NavBar } from ".."
+import { useSelector } from 'react-redux'
+import { NavBar, InformWindow } from ".."
+import { modalActions } from '../../redux/actions'
+import { Modal } from "../../types/modal"
 
 export const MainLayout = ({ children, title }) => {
-
-  return <div>
+  const { text, timeout } = useSelector((state: { modal: Modal }) => state.modal)
+  return <>
     <Head>
       <title>
         { title } | Travel Guide
@@ -14,5 +17,6 @@ export const MainLayout = ({ children, title }) => {
     <main>
       { children }
     </main>
-  </div>
+    { text && <InformWindow id={'modal'} children={ text } closedModal={ timeout } handleClick={ modalActions.handleClick } /> }
+  </>
 }

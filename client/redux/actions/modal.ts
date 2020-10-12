@@ -4,14 +4,14 @@ const Actions = {
       dispatch({
         type: 'SHOW_MODAL',
         payload: text,
-      });
+      })
 
       setTimeout(() => {
         dispatch(Actions.hideTimeout(true));
         setTimeout(() => {
           dispatch(Actions.hideTimeout(null))
         }, 1500)
-      }, 2500);
+      }, 2500)
 
       setTimeout(() => {
         dispatch(Actions.hideModal())
@@ -25,7 +25,7 @@ const Actions = {
         dispatch(Actions.hideModal());
         dispatch(Actions.hideTimeout(null))
       }, 1000)
-    };
+    }
   },
   hideTimeout: (timeout: null | boolean) => {
     return {
@@ -38,6 +38,6 @@ const Actions = {
       type: 'HIDE_MODAL'
     }
   }
-};
+}
 
 export default Actions

@@ -2,7 +2,7 @@ import { Modal } from "../../types/modal"
 const initialState = {
   text: null,
   timeout: null,
-};
+}
 
 type ActionType = {
   payload: Modal
@@ -15,18 +15,18 @@ export default (state = initialState, actions: ActionType) => {
       return {
         ...state,
         text: actions.payload
-      };
+      }
     case 'HIDE_MODAL':
       return {
         ...state,
         text: null
-      };
+      }
     case 'HIDE_TIMEOUT':
       return {
         ...state,
         timeout: actions.payload
-      };
+      }
     default:
-      return state;
+      return state
   }
 }

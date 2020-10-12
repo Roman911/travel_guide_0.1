@@ -3,8 +3,8 @@ import React from "react"
 import { StyleSheetServer } from "aphrodite"
 
 export default class MyDocument extends Document {
-  static async getInitialProps({renderPage}) {
-    const {html, css} = StyleSheetServer.renderStatic(() => renderPage())
+  static async getInitialProps({ renderPage}) {
+    const { html, css } = StyleSheetServer.renderStatic(() => renderPage())
     const ids = css.renderedClassNames
     return {...html, css, ids}
   }

@@ -19,6 +19,7 @@
     "@types/react-redux": "^7.1.9",
     "aphrodite": "^2.4.0",
     "apollo-boost": "^0.4.9",
+    "formik": "^2.2.0",
     "moment": "^2.29.1",
     "next": "9.5.3",
     "next-with-apollo": "^5.1.0",
