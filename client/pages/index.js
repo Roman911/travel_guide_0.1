@@ -7,7 +7,7 @@ import withApollo from '../lib/withApollo'
 import { postsQuery, commentsQuery } from "../apollo/queries/posts"
 import { MainLayout, SectionTitle, LoadingPost, News } from "../Components"
 import baseStyles from '../styles'
-import styles from './styles'
+import styles from '../styles/news'
 import { UseAuth } from "../hooks/auth.hook"
 
 const Home = () => {

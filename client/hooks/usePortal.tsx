@@ -9,7 +9,7 @@ function addRootElement(rootElem: Element) {
   document.body.insertBefore(
     rootElem,
     document.body.lastElementChild.nextElementSibling,
-  );
+  )
 }
 function usePortal(id: string) {
   const rootElemRef = useRef<HTMLElement | null>(null)

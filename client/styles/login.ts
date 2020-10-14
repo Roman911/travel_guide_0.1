@@ -32,4 +32,17 @@ export default StyleSheet.create({
     margin: '10px 0',
     textAlign: 'end'
   },
+  bottomBlock: {
+    marginTop: 15,
+    textAlign: 'center'
+  },
+  text: {
+    fontWeight: 100
+  },
+  link: {
+    color: '#0366d6',
+    fontSize: 14,
+    fontWeight: 100,
+    fontStyle: 'italic'
+  }
 })
