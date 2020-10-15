@@ -113,7 +113,7 @@ const Login = () => {
       </form>
       <div className={css(loginStyles.wrapperForm, loginStyles.bottomBlock)}>
         <span className={css(loginStyles.text)}>Новий користувач? </span>
-        <Link href="/register">
+        <Link href="/registration">
           <a>
             <span className={css(loginStyles.link)}>Створити акаунт.</span>
           </a>

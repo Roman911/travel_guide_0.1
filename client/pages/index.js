@@ -2,18 +2,13 @@ import React from "react"
 import { css } from 'aphrodite/no-important'
 import { useQuery } from "@apollo/react-hooks"
 import { getDataFromTree } from '@apollo/react-ssr'
-
 import withApollo from '../lib/withApollo'
 import { postsQuery, commentsQuery } from "../apollo/queries/posts"
 import { MainLayout, SectionTitle, LoadingPost, News } from "../Components"
 import baseStyles from '../styles'
 import styles from '../styles/news'
-import { UseAuth } from "../hooks/auth.hook"
 
 const Home = () => {
-
-  UseAuth()
-
   const { loading, error, data } = useQuery(postsQuery)
   if (loading) return ''
   if  (error ) return `Error! ${error}`

@@ -6,6 +6,7 @@ export default StyleSheet.create({
   },
   userItem: {
     position: 'relative',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    marginLeft: 14
   }
 })

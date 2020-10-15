@@ -8,7 +8,6 @@ import styles from './styles'
 import { Links } from "./config"
 import { UseRoutes } from "../../modules"
 
-
 export const NavBar = () => {
 
   const links = Links.link.map((item, index) => {
