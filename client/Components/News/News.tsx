@@ -16,12 +16,12 @@ type MyNewProps = {
 export const News: ({item, comments}: MyNewProps) => any = ({ item, comments }): any => {
   return <div className={ css(styles.wrapper) }>
     <div className={ css(styles.content) }>
-      <Link href={`/post/${ item._id }`}>
+      <Link href={`/post/[id]`} as={`/post/${ item._id }`} >
         <img className={ css(styles.img) } src={ item.coverNews } alt=""/>
       </Link>
       <div className={ css(styles.block) }>
         <AuthorPost isArticle={ false } author={ item.author } date={ item.createdAt } />
-        <Link href={`/post/${ item._id }`} >
+        <Link href={`/post/[id]`} as={`/post/${ item._id }`} >
           <div className={ css(baseStyles.block, baseStyles.blockText) }>
             <h3>{ item.title }</h3>
             <p>{ item.small_text }</p>

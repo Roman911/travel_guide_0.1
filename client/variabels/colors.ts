@@ -17,7 +17,7 @@ export const socSet = {
 
 export const borders = {
   border: '#d6d6d6',
-  orderInput: '#ddd'
+  borderInput: '#ddd'
 }
 
 export const text = {

@@ -2,25 +2,17 @@ import React from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import { useDispatch } from "react-redux"
-
 import { useFormik } from 'formik'
 import { useLazyQuery } from '@apollo/react-hooks'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import { css } from "aphrodite/no-important"
-
 import { loginQuery } from '../apollo/queries/login'
 import validateForm from '../utils/validate'
-
-import { Button, Loading, MainLayout } from "../Components"
-import baseStyles from '../styles'
+import { Button, Loading, MainLayout, Input } from "../Components"
 import loginStyles from '../styles/login'
-import inputStyles from '../styles/forImput'
 import withApollo from "../lib/withApollo"
-
 import { userActions, modalActions } from '../redux/actions'
 
-const Login = () => {
+const Login: React.FC = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const [ userData, { loading, data, error } ] = useLazyQuery( loginQuery )
@@ -66,42 +58,8 @@ const Login = () => {
       <h1 className={css(loginStyles.title)}>Sign in to Travel Guide</h1>
       <form onSubmit={ handleSubmit }>
         <div className={ css(loginStyles.wrapperForm) }>
-          <p className={ css(inputStyles.textP) }>Введіть свій email</p>
-          <div className={ css(inputStyles.inputWrapper) }>
-            <input
-              id="email"
-              className={ errors.email && touched.email ? css(inputStyles.input, inputStyles.inputUser, inputStyles.error) : css(inputStyles.input, inputStyles.inputUser) }
-              type="text"
-              value={ values.email }
-              onChange={ handleChange }
-              onBlur={ handleBlur }
-            />
-            {
-              touched.email && ( errors.email ? <FontAwesomeIcon className={ css(baseStyles.icon, inputStyles.icon, inputStyles.errorColor) } icon={ faExclamationCircle }/> :
-                <FontAwesomeIcon className={ css(baseStyles.icon, inputStyles.icon, inputStyles.isOkColor) } icon={ faCheckCircle }/>)
-            }
-          </div>
-          {errors.email &&
-          touched.email && (
-            <div className="input-feedback">{ errors.email }</div>
-          )}
-          <p className={ css(inputStyles.textP) }>Введіть свій пароль</p>
-          <div className={ css(inputStyles.inputWrapper) }>
-            <input
-              id="password"
-              className={ errors.password && touched.password ? css(inputStyles.input, inputStyles.inputUser, inputStyles.error) : css(inputStyles.input, inputStyles.inputUser) }
-              type="password"
-              value={ values.password }
-              onChange={ handleChange }
-              onBlur={ handleBlur }
-            />
-            { touched.password && ( errors.password ? <FontAwesomeIcon className={ css(baseStyles.icon, inputStyles.icon, inputStyles.errorColor) } icon={ faExclamationCircle }/> :
-              <FontAwesomeIcon className={ css(baseStyles.icon, inputStyles.icon, inputStyles.isOkColor) } icon={ faCheckCircle }/>) }
-          </div>
-          {errors.password &&
-          touched.password && (
-            <div className="input-feedback">{ errors.password }</div>
-          )}
+          <Input id="email" type="text" head='Введіть email' errors={ errors.email } touched={ touched.email } values={ values.email } handleChange={ handleChange } handleBlur={ handleBlur } />
+          <Input id="password" type="password" head='Введіть пароль' errors={ errors.password } touched={ touched.password } values={ values.password } handleChange={ handleChange } handleBlur={ handleBlur } />
           <div className={ css(loginStyles.inputSub) }>
             <Button
               type="submit"
@@ -113,7 +71,7 @@ const Login = () => {
       </form>
       <div className={css(loginStyles.wrapperForm, loginStyles.bottomBlock)}>
         <span className={css(loginStyles.text)}>Новий користувач? </span>
-        <Link href="/registration">
+        <Link href={ "/registration" }>
           <a>
             <span className={css(loginStyles.link)}>Створити акаунт.</span>
           </a>

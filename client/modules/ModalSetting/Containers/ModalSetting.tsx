@@ -1,19 +1,18 @@
-import React, {useState} from "react"
-import { connect } from 'react-redux'
+import React, { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/react-hooks'
 import { Modal } from "../Components/Modal"
-import { modalActions } from "../../../redax/actions"
+import { modalActions } from "../../../redux/actions"
 import { addLocationsUserListMutation } from './mutations'
 import { User } from "../../../types/user"
 
 type ModalSettingProps = {
   mapInformation?: boolean
-  showModal: (arg0: string) => void
-  user: User
 }
 
-const ModalSetting: React.FC<ModalSettingProps> = ({ mapInformation, user, showModal }) => {
-  const { data } = user
+export const ModalSetting: React.FC<ModalSettingProps> = ({ mapInformation }) => {
+  const { data } = useSelector((state: { user: User }) => state.user)
+  const dispatch = useDispatch()
   const [showModalSetting, setShowModalSetting] = useState(false)
   const [closeModalSetting, setCloseModalSetting] = useState(false)
   const [addLocationsUserList] = useMutation(addLocationsUserListMutation)
@@ -29,7 +28,7 @@ const ModalSetting: React.FC<ModalSettingProps> = ({ mapInformation, user, showM
         setShowModalSetting(true)
       }
     } else {
-      showModal('Для виконання данної дії потрібно авторизоватись')
+      dispatch(modalActions.showModal('Для виконання данної дії потрібно авторизоватись'))
     }
   }
   const addLocationMyList = (action: string) => {
@@ -42,16 +41,10 @@ const ModalSetting: React.FC<ModalSettingProps> = ({ mapInformation, user, showM
       }
     }).then(data => {
       if (data) {
-        showModal('Локація успішно добавлена у ваш список')
+        dispatch(modalActions.showModal('Локація успішно добавлена у ваш список'))
       }
     })
   }
 
   return <Modal mapInformation={ mapInformation } handleClick={ handleClick } showModalSetting={ showModalSetting } closeModalSetting={ closeModalSetting } addLocationMyList={ addLocationMyList } />
 }
-
-const mapStateToProps = (state: { user: User }) => ({
-  user: state.user
-})
-
-export default connect(mapStateToProps, { ...modalActions })(ModalSetting)

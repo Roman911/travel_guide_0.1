@@ -1,4 +1,4 @@
-import Document, { Head, Main, NextScript } from "next/document"
+import Document, { Html, Head, Main, NextScript } from "next/document"
 import React from "react"
 import { StyleSheetServer } from "aphrodite"
 
@@ -11,15 +11,16 @@ export default class MyDocument extends Document {
 
   constructor(props) {
     super(props)
-    const {__NEXT_DATA__, ids} = props
+    const { apolloState, __NEXT_DATA__, ids } = props
     if (ids) {
       __NEXT_DATA__.ids = this.props.ids
     }
+    __NEXT_DATA__.apolloState = apolloState
   }
 
   render() {
     return (
-      <html>
+      <Html>
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200&display=swap&subset=cyrillic" />
         <link rel="icon" href="/favicon.ico"/>
@@ -29,7 +30,7 @@ export default class MyDocument extends Document {
       <Main/>
       <NextScript/>
       </body>
-      </html>
+      </Html>
     )
   }
 }
