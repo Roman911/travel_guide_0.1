@@ -8,7 +8,7 @@ import { postQuery } from "../../modules/Post/Containers/queries"
 import withApollo from '../../lib/withApollo'
 import { User } from "../../types/user"
 
-const Posts: () => (JSX.Element | string) = () => {
+const Posts:React.FC = (): any => {
   const user = useSelector((state: { user: User }) => state.user)
   const router = useRouter()
   const _id = router.query.id
@@ -24,5 +24,4 @@ const Posts: () => (JSX.Element | string) = () => {
   </MainLayout>
 }
 
-// @ts-ignore
 export default withApollo(Posts, { getDataFromTree })
