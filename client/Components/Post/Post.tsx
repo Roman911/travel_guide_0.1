@@ -1,6 +1,6 @@
 import React from "react"
 import { css } from "aphrodite"
-import { Comments, Likes } from "../../modules"
+import {Comments, InformUserLocation, Likes, Populars} from "../../modules"
 import { ArticleStats, AuthorPost, InfoBar, SectionTitle } from ".."
 
 import baseStyles from '../../styles'
@@ -33,7 +33,8 @@ export const Post: React.FC<MyPostProps> = ({ user, post }) => {
       </div>
       <div>
         <InfoBar coordinates={ coordinates } tickets={ tickets } location={ location } work_time={ work_time } isType={ isType } />
-
+        { data && <InformUserLocation locationId={ locationId } user={ user } /> }
+        <Populars />
       </div>
     </div>
   </section>

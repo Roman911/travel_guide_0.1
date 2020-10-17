@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/react-hooks"
 import { getDataFromTree } from '@apollo/react-ssr'
 import withApollo from '../lib/withApollo'
 import { postsQuery, commentsQuery } from "../apollo/queries/posts"
+import { Populars } from "../modules"
 import { MainLayout, SectionTitle, LoadingPost, News } from "../Components"
 import baseStyles from '../styles'
 import styles from '../styles/news'
@@ -30,7 +31,7 @@ const Home = () => {
         <div className={ css(styles.news) }>
           { news }
         </div>
-        <div>13132155555</div>
+        <Populars />
       </div>
     </section>
   </MainLayout>
