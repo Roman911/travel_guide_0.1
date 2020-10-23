@@ -22,7 +22,8 @@ export const borders = {
 
 export const text = {
   main: '#303335',
-  textInput: '#545759'
+  textInput: '#545759',
+  hover: '#cb2c3b'
 }
 
 export const icons = '#707070'

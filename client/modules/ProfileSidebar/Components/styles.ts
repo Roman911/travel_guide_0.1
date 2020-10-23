@@ -32,7 +32,8 @@ export default StyleSheet.create({
     top: 0,
     width: '100%',
     height: '100vh',
-    background: 'rgba(255, 255, 255, 0.7)'
+    background: 'rgba(255, 255, 255, 0.7)',
+    zIndex: 11
   },
   sidebar: {
     position: 'fixed',

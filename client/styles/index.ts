@@ -65,5 +65,9 @@ export default StyleSheet.create({
   },
   bottom: {
     borderTop: '1px solid #cccccc'
+  },
+  wrapperCreateLocation: {
+    marginTop: 20,
+    display: 'flex'
   }
 })

@@ -16,6 +16,6 @@ export const Maps: React.FC<MyMapsProps> = ({ locations }) => {
 
   return <section className={ css(baseStyles.wrapper) }>
     <SectionTitle title='Карта' />
-    <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } locations={ locations } />
+    <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } locations={ locations } disableDefaultUI={ false } />
   </section>
 }
