@@ -16,15 +16,18 @@ export default StyleSheet.create({
   },
   paragraph: {
     color: text.main,
-    width: 250,
+    width: 200,
     fontWeight: 600
+  },
+  wrapperInput: {
+    width: 'calc(100% - 210px)'
   },
   input: {
     border: `1px solid ${borders.borderInput}`,
     padding: '10px 15px',
     color: text.textInput,
     fontWeight: 600,
-    width: 'calc(100% - 260px)',
+    width: 'calc(100% - 210px)',
     ':focus': {
       border: '1px solid black'
     }
@@ -54,6 +57,20 @@ export default StyleSheet.create({
     fontWeight: 600,
     color: text.main
   },
-  //CreateLocations
-
+  // Ticket styles
+  textSmall: {
+    width: 120,
+    fontSize: '1rem',
+    marginLeft: 20
+  },
+  inputSmall: {
+    padding: '4px 8px'
+  },
+  isNotActive: {
+    opacity: 0.5
+  },
+  //Checkbox
+  checkbox: {
+    fontSize: 12
+  }
 })

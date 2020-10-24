@@ -21,7 +21,7 @@ const CreateLocation =() => {
     <section className={ css(baseStyle.wrapper) }>
       <SectionTitle title='Редагування' />
       <div className={css(baseStyle.boxShadow, baseStyle.wrapperCreateLocation)}>
-        <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } />
+        <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } search={ true } />
         <CreateLocationSelector
           // @ts-ignore
           latLng={ latLng }

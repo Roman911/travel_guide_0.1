@@ -12,6 +12,7 @@ type MyGoogleMapsProps = {
   locations?: Locations
   disableDefaultUI: boolean
   click?: (event) => any
+  search: boolean
 }
 type latLng = {
   lat: number
@@ -20,7 +21,7 @@ type latLng = {
 
 const libraries = ["places"]
 
-export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click }) => {
+export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click, search }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyDLRRgxqKe9Ok-an59Hh7qxfKZG0mGqHW8",
     // @ts-ignore
@@ -51,7 +52,7 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
   }
   const renderMap = () => {
     return <div style={{position: 'relative', width: '100%'}}>
-      <Search panTo={ panTo } />
+      { search && <Search panTo={ panTo } /> }
       <GoogleMap
         mapContainerStyle={ mapContainerStyle }
         zoom={ zoom }
@@ -67,7 +68,7 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
         } : null}
       >
         { selectedPark && <LocationInformation _id={ selectedPark } handleClick={ handleClick } closeWindow={ closeWindow } /> }
-        { locations ? locations.map((park, index) => (
+        { locations && locations.map((park, index) => (
           <Marker
             key={ index }
             onClick={() => {
@@ -78,10 +79,10 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
               url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${park.isType}.png`
             }}
           />
-        )) : null }
-        { marker ? <Marker
+        ))}
+        { marker && <Marker
           position={{ lat: marker.lat, lng: marker.lng }}
-        /> : null }
+        /> }
       </GoogleMap>
     </div>
   }

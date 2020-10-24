@@ -30,11 +30,15 @@ export const Information: React.FC<MyInformationProps> = ({ location, handleClic
     <div className={ css(styles.blockText) }>
       <p className={ css(styles.text) }>{ small_text }</p>
     </div>
-    { linkToPost.length !== 0 && <div className={ css(styles.blockText) }>
+    { linkToPost.length !== 0 ? <div className={ css(styles.blockText) }>
       <p className={ css(styles.textInfo) }>Більше про { title } можете подивитись тут:</p>
       <Link href={`/post/[id]`} as={ `/post/${ linkToPost }` }>
         <a><span className={css(styles.link)}>{ title }</span></a>
       </Link>
-    </div> }
+    </div> :
+      <div>
+        123
+      </div>
+    }
   </div>
 }

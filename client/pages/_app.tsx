@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 import React from "react"
 import moment from 'moment'
+import 'react-quill/dist/quill.snow.css'
 import 'moment/locale/uk'
 
 import store from "../redux/store"

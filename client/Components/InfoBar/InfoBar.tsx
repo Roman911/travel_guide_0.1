@@ -38,7 +38,7 @@ export const InfoBar: React.FC<MyInfoBarProps> = ({ coordinates, tickets, locati
   </div>
 
   return <section className={ css( baseStyles.boxShadow, styles.wrapper) }>
-    <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } locations={ locations } disableDefaultUI={ true } />
+    <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } locations={ locations } disableDefaultUI={ true } search={ false } />
     <div className={ css(styles.content) }>
       <div className={ css(baseStyles.flex, styles.block) }>
         <FontAwesomeIcon className={ css(baseStyles.icon) } icon={ faMapMarkerAlt } />
