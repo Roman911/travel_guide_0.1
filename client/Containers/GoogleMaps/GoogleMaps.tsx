@@ -23,7 +23,7 @@ const libraries = ["places"]
 
 export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click, search }) => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyDLRRgxqKe9Ok-an59Hh7qxfKZG0mGqHW8",
+    googleMapsApiKey: process.env.GOOGLE_MAPS_KAY,
     // @ts-ignore
     libraries
   })
