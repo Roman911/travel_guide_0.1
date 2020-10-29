@@ -25,7 +25,7 @@ const CreateLocationSelector: React.FC<clsProps> = ({ latLng }) => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createLocations ] = useMutation(addLocationMutation)
-  const { handleSubmit, handleChange, values, handleBlur, isSubmitting, setSubmitting, setFieldValue, setValues } = useFormik({
+  const { handleSubmit, handleChange, values, handleBlur, isSubmitting, setSubmitting, setFieldValue } = useFormik({
     initialValues: {
       title: '', cover: '', small_text: '', linkToPost: '', coordinateY: '0.00000', coordinateX: '0.00000', isType: 'other', isTypeSettlement: 'city', region: '', district: '', city: '', street: ''
     },

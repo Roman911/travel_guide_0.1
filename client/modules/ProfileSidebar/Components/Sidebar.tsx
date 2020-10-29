@@ -35,19 +35,19 @@ export const Sidebar: React.FC<SidebarProps> = ({ name, avatar, email, closeSide
       <p className={ css(styles.email) }>{ email }</p>
       <p className={ css(styles.rating) }>рейтинг: 100</p>
       <div className={ css(styles.btnWrapper) }>
-        <Link href='/create-route'>
+        <Link href={'/create-route'}>
           <a onClick={ () => closeSidebar() }>
             <Button nameBtn='Додати маршрут' isSubmitting={ false } />
           </a>
         </Link>
         <div className={ css(styles.br) }/>
-        <Link href='/create-post'>
+        <Link href={'/create-post'}>
           <a onClick={ () => closeSidebar() }>
             <Button nameBtn='Додати статю' isSubmitting={ false } />
           </a>
         </Link>
         <div className={ css(styles.br) }/>
-        <Link href='/create-location'>
+        <Link href={'/create-location'}>
           <a onClick={ () => closeSidebar() }>
             <Button nameBtn='Додати локацію' isSubmitting={ false } />
           </a>

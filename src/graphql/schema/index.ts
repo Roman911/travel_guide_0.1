@@ -131,6 +131,17 @@ input UserInput {
   email: String!
   password: String!
 }
+type ImgSrc {
+  _id: ID
+  type: String
+}
+input File {
+  lastModified: Int
+  name: String
+  size: Int
+  type: String
+  webkitRelativePath: String
+}
 type RootQuery {
     events: [Event!]!
     posts: [Post!]!
@@ -157,6 +168,7 @@ type RootMutation {
     createComment(postId: ID!, idAuthor: ID!, text: String!): Comments
     addComment(_id: ID!, idAuthor: ID!, text: String!): Comments
     removeLocationWithUserList(_id: ID!): LocationsUserList
+    uploadImage(file: File): ImgSrc
 }
 schema {
     query: RootQuery

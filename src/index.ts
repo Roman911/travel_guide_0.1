@@ -1,29 +1,36 @@
-const express = require('express');
-const graphqlHTTP = require('express-graphql');
-const mongoose = require('mongoose');
-import bodyParser from  'body-parser';
-const dotenv = require('dotenv');
-const cors = require('cors');
-const graphQlSchema = require('./graphql/schema');
-const graphQlResolvers = require('./graphql/resolvers');
-const isAuth = require('./middlewares/is-auth');
+const express = require('express')
+const graphqlHTTP = require('express-graphql')
+const path = require('path')
+const mongoose = require('mongoose')
+import bodyParser from  'body-parser'
+const dotenv = require('dotenv')
+const cors = require('cors')
+const graphQlSchema = require('./graphql/schema')
+const graphQlResolvers = require('./graphql/resolvers')
+const isAuth = require('./middlewares/is-auth')
+const multer = require('multer')
 
-const app = express();
-dotenv.config();
+const app = express()
+dotenv.config()
 
-app.use(cors());
+app.use(cors())
 
-app.use(isAuth);
+app.use(isAuth)
+
+const storage = multer.memoryStorage()
+app.use('/graphql', multer({ storage }).single('file'))
 
 app.use('/graphql', graphqlHTTP({
   schema: graphQlSchema,
   rootValue: graphQlResolvers,
   graphiql: true,
-}));
+  pretty: true
+}))
 
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'uploads/')))
+app.use(bodyParser.json())
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 
 async function start() {
   try {
@@ -32,15 +39,14 @@ async function start() {
       useFindAndModify: false,
       useUnifiedTopology: true,
       useCreateIndex: true
-    });
-
+    })
     app.listen(PORT, function () {
-      console.log(`Server: http://localhost:${PORT}`);
-    });
+      console.log(`Server: http://localhost:${PORT}`)
+    })
   } catch (e) {
-    console.log('Serwer error', e.message);
+    console.log('Serwer error', e.message)
     process.exit(1)
   }
 }
 
-start();
+start()

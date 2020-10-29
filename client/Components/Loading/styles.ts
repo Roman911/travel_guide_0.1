@@ -16,12 +16,12 @@ const lineAnimation = {
 
 export default StyleSheet.create({
   wrapper: {
-    margin: '15px auto',
+    margin: '10px 7px',
     textAlign: 'center'
   },
   car: {
     width: 'auto !important',
-    height: 25,
+    height: 24,
     color: icons,
     padding: '0 5px'
   },
@@ -34,8 +34,7 @@ export default StyleSheet.create({
   //LoadingPost
   content: {
     background: '#fff',
-    padding: 20,
-    marginTop: 50
+    padding: 15
   },
   widthPost: {
     width: '100%'
@@ -44,8 +43,8 @@ export default StyleSheet.create({
     width: widthBlocks.newsBlock
   },
   line: {
-    height: 20,
-    marginBottom: 15,
+    height: 18,
+    marginBottom: 13,
     borderRadius: 2,
     animationName: [lineAnimation],
     animationDuration: '2.2s',
@@ -77,6 +76,6 @@ export default StyleSheet.create({
     width: '60%'
   },
   lineMB30: {
-    marginBottom: 30
+    marginBottom: 26
   }
 })

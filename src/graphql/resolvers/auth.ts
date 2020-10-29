@@ -1,8 +1,8 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 // @ts-ignore
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 // @ts-ignore
-const User = require('../../models/Users');
+const User = require('../../models/Users')
 
 type MyCreateUserProps = {
   userInput: {
@@ -19,24 +19,23 @@ type MyLoginProps = {
 module.exports = {
   createUser: async (args: MyCreateUserProps) => {
     try {
-      const existingUser = await User.findOne({ email: args.userInput.email });
+      const existingUser = await User.findOne({ email: args.userInput.email })
       if (existingUser) {
-        return new Error('Даний емейл зайнятий');
+        return new Error('Даний емейл зайнятий')
       }
-      const hashedPassword = await bcrypt.hash(args.userInput.password, 12);
+      const hashedPassword = await bcrypt.hash(args.userInput.password, 12)
 
       const user = new User({
         name: args.userInput.name,
         email: args.userInput.email,
         password: hashedPassword,
         avatar: 'undefined'
-      });
+      })
+      const result = await user.save()
 
-      const result = await user.save();
-
-      return { ...result._doc, password: null, _id: result.id };
+      return { ...result._doc, password: null, _id: result.id }
     } catch (err) {
-      throw err;
+      throw err
     }
   },
   login: async (args: MyLoginProps) => {
@@ -55,14 +54,14 @@ module.exports = {
       {
         expiresIn: '1h'
       }
-    );
-    return { userId: user.id, token: token, tokenExpiration: 1, name: user.name, avatar: user.avatar, email: user.email };
+    )
+    return { userId: user.id, token: token, tokenExpiration: 1, name: user.name, avatar: user.avatar, email: user.email }
   },
   author: async (args: { _id: string }) => {
     try {
       return await User.findById(args._id)
     } catch (err) {
-      throw err;
+      throw err
     }
   },
-};
+}

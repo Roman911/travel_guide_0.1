@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IArticle extends Document {
   author: {
@@ -24,8 +24,8 @@ const ArticleSchema = new Schema({
   last_seen: Date,
 }, {
   timestamps: true
-});
+})
 
-const ArticleModel = mongoose.model<IArticle>('Article', ArticleSchema);
+const ArticleModel = mongoose.model<IArticle>('Article', ArticleSchema)
 
 export default ArticleModel

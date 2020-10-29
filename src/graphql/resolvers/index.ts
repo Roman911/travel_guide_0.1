@@ -4,6 +4,7 @@ const postResolver = require('./post')
 const locationsResolver = require('./locations')
 const locationsListResolver = require('./locationList')
 const commentsResolver = require('./comments')
+const uploadImageResolver = require('./uploadImage')
 
 const rootResolver = {
   ...authResolver,
@@ -11,7 +12,8 @@ const rootResolver = {
   ...postResolver,
   ...locationsResolver,
   ...locationsListResolver,
-  ...commentsResolver
-};
+  ...commentsResolver,
+  ...uploadImageResolver
+}
 
-module.exports = rootResolver;
+module.exports = rootResolver
