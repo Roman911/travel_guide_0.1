@@ -1,39 +1,29 @@
 import React from "react"
-import { css } from "aphrodite"
+import { Field, ErrorMessage } from 'formik'
+import { css } from "aphrodite/no-important"
 import styles from "../../styles/forImput"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import baseStyles from "../../styles"
-import { faCheckCircle, faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import { TextError } from ".."
 
 type InputProps = {
   id: string
   type: string
   head: string
-  errors: undefined | string
-  touched: undefined | boolean
-  values: string
-  handleChange: any
-  handleBlur: any
+  errors: any
+  touched: any
+  value: any
 }
 
-export const Input: React.FC<InputProps> = ({ id, type, head, errors, touched, values, handleChange, handleBlur }) => {
+export const Input: React.FC<InputProps> = ({ id, type, head, errors, touched, value }) => {
   return <>
-    <p className={ css(styles.textP) }>{ head }</p>
     <div className={ css(styles.inputWrapper) }>
-      <input
+      <label className={ css(styles.label, value !== '' ? styles.labelTouched : null) } htmlFor={ id }>{ head }</label>
+      <Field
         id={ id }
-        className={ errors && touched ? css(styles.input, styles.inputUser, styles.error) : css(styles.input, styles.inputUser) }
+        name={ id }
         type={ type }
-        value={ values }
-        onChange={ handleChange }
-        onBlur={ handleBlur }
       />
-      { touched && ( errors ? <FontAwesomeIcon className={ css(baseStyles.icon, styles.icon, styles.errorColor) } icon={ faExclamationCircle }/> :
-        <FontAwesomeIcon className={ css(baseStyles.icon, styles.icon, styles.isOkColor) } icon={ faCheckCircle }/>) }
+      <ErrorMessage name={ id } component={ TextError } />
+      { touched && (errors ? <p className={ css(styles.icon) } >!</p> : null) }
     </div>
-    {errors &&
-    touched && (
-      <div className="input-feedback">{ errors }</div>
-    )}
   </>
 }

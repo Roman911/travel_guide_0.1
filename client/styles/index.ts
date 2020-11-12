@@ -68,7 +68,8 @@ export default StyleSheet.create({
   },
   wrapperCreateLocation: {
     marginTop: 20,
-    display: 'flex'
+    display: 'flex',
+    justifyContent: 'space-between'
   },
   br: {
     marginRight: 15

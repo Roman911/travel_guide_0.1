@@ -13,6 +13,7 @@ type MyGoogleMapsProps = {
   disableDefaultUI: boolean
   click?: (event) => any
   search: boolean
+  isType?: string | null
 }
 type latLng = {
   lat: number
@@ -21,12 +22,13 @@ type latLng = {
 
 const libraries = ["places"]
 
-export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click, search }) => {
+export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click, search, isType }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAPS_KAY,
     // @ts-ignore
     libraries
   })
+  const [ searchMarker, setSearchMarker ] = useState(false)
   const mapRef = useRef()
   const onMapLoad = useCallback((map) => {
     mapRef.current = map
@@ -36,7 +38,9 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
     mapRef.current.panTo({ lat, lng })
     // @ts-ignore
     mapRef.current.setZoom(12)
+    setSearchMarker(true)
   }, [])
+
   const [ marker, setMarker ] = useState<null | latLng>(null)
   const [ selectedPark, setSelectedPark ] = useState<null | string>(null)
   const [ closeWindow, setCloseWindow ] = useState<boolean>(false)
@@ -52,6 +56,7 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
   }
   const renderMap = () => {
     return <div style={{position: 'relative', width: '100%'}}>
+      { console.log(center, zoom) }
       { search && <Search panTo={ panTo } /> }
       <GoogleMap
         mapContainerStyle={ mapContainerStyle }
@@ -82,6 +87,10 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
         ))}
         { marker && <Marker
           position={{ lat: marker.lat, lng: marker.lng }}
+          icon={ isType !== 'other' ? { url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${isType}.png` } : null }
+        /> }
+        { searchMarker && <Marker
+          position={center}
         /> }
       </GoogleMap>
     </div>

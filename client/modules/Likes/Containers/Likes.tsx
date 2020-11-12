@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { useMutation } from '@apollo/react-hooks'
 import { Like } from '../Components/Like'
@@ -14,40 +14,42 @@ type MyLikesProps = {
 }
 
 export const Likes:React.FC<MyLikesProps> = ({ id, likes, post }) => {
+  const [ quantityLikes, setQuantityLikes ] = useState(likes.length)
+  const [ userLike, setUserLike ] = useState(false)
   const user = useSelector((state: { user: User }) => state.user)
   const dispatch = useDispatch()
   const { data } = user
-  const quantityLikes = likes.length
   const userId = data ? data.userId : undefined
-  const userLike = likes.filter((item: string | undefined) => {
-    if (item === userId) {
-      return item
-    }
-    return 0
-  })
+
+  useEffect(() => {
+    likes.filter((item: string | undefined) => {
+      if (item === userId) {
+        setUserLike(true)
+      } else {
+        setUserLike(false)
+      }
+    })
+  }, [likes, userId])
+
   const [ addLike ] = useMutation(addLikeMutation)
   const [ removeLike ] = useMutation(removeLikeMutation)
 
   const handleChangeAdd = () => {
+    setQuantityLikes(quantityLikes +1)
+    setUserLike(true)
     if (userId) {
       addLike({
         variables: { postId: id, userId: userId },
-        refetchQueries: [{
-          query: postQuery,
-          variables: { _id: id }
-        }]
-      }).then(r =>r);
+      }).then(r =>r)
     } else {
       dispatch(modalActions.showModal('Для виконання данної дії потрібно авторизоватись'))
     }
   }
   const handleChangeRemove = () => {
+    setQuantityLikes(quantityLikes -1)
+    setUserLike(false)
     removeLike({
-      variables: { postId: id, userId: userId },
-      refetchQueries: [{
-        query: postQuery,
-        variables: { _id: id }
-      }]
+      variables: { postId: id, userId: userId }
     })
       .then(r =>r)
   }

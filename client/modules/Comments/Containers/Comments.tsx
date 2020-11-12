@@ -16,9 +16,10 @@ export const Comments: React.FC<CommentsProps> = ({ id }): any => {
   if (loading) return <Loading />
   if (error) return `Error! ${error}`
   const { comments } = data
+  const commentsReverse = comments.reverse()
   return <>
     <h3>КОМЕНТАРІ</h3>
     <CreateComment postId={ id } isFirstComment={ true } />
-    <ShowAllComments comments={ comments } postId={ id } />
+    <ShowAllComments comments={ commentsReverse } postId={ id } />
   </>
 }

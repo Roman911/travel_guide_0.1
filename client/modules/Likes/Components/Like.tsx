@@ -9,22 +9,22 @@ import styles from './styles'
 type MyLikeProps = {
   post: boolean
   quantityLikes: number
-  userLike: any
+  userLike: boolean
   handleChangeAdd: () => void
   handleChangeRemove: () => void
 }
 
 export const Like:React.FC<MyLikeProps> = ({ post, quantityLikes, userLike, handleChangeAdd, handleChangeRemove }) => {
-  const likeNumber = quantityLikes !== 0 && <p className={ css(styles.text) }>{ quantityLikes }</p>;
-  const className = userLike.length !== 0 ? post ?
+  const likeNumber = quantityLikes !== 0 && <p className={ css(styles.text) }>{ quantityLikes }</p>
+  const className = userLike ? post ?
     css(baseStyles.icon, styles.icon, styles.iconActive, styles.iconPost) :
     css(baseStyles.icon, styles.icon, styles.iconActive) :
     post ?
       css(baseStyles.icon, styles.icon, styles.iconPost) :
-      css(baseStyles.icon, styles.icon);
-  const handleChange = post ? userLike.length !== 0 ? handleChangeRemove : handleChangeAdd : () => {};
-  const iconHearts = userLike.length !== 0 ? faHeartSolid : faHeartRegular;
-  const likeActive = <LikeIcon className={ className } handleChange={ handleChange } iconHearts={ iconHearts } />;
+      css(baseStyles.icon, styles.icon)
+  const handleChange = post ? userLike ? handleChangeRemove : handleChangeAdd : () => {}
+  const iconHearts = userLike ? faHeartSolid : faHeartRegular
+  const likeActive = <LikeIcon className={ className } handleChange={ handleChange } iconHearts={ iconHearts } />
 
   return <div className={ css(baseStyles.flex) }>
     { likeActive }

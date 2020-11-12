@@ -23,5 +23,20 @@ export default StyleSheet.create({
   },
   input: {
     width: '100%'
+  },
+  //NavBarAuth
+  wrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '20px 50px 70px'
+  },
+  img: {
+    height: 56
+  },
+  closed: {
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: 28,
+    fontWeight: 800
   }
 })

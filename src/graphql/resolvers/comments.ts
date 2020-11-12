@@ -8,14 +8,14 @@ module.exports = {
       postId: postId,
       text: text,
       comments: []
-    });
+    })
     return await comment.save()
   },
   comments: async (args: { postId: string }) => {
     try {
       return await Comments.find({postId: args.postId})
     } catch (err) {
-      throw err;
+      throw err
     }
   },
   addComment: async (args: { _id: string; idAuthor: string, text: string }) => {
@@ -26,7 +26,7 @@ module.exports = {
         comments.push({
           idAuthor: args.idAuthor,
           text: args.text
-        });
+        })
         await comment.save()
       }
       return comment
@@ -34,4 +34,4 @@ module.exports = {
       throw err
     }
   },
-};
+}

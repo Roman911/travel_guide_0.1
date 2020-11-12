@@ -8,6 +8,7 @@ import CreateLocationSelector from "../Containers/CreateLocationSelector/CreateL
 
 const CreateLocation =() => {
   const [ latLng, setLatLnd ] = useState(null)
+  const [ isType, setIsType ] = useState(null)
   const mapContainerStyle = { height: "calc(100vh - 200px)", width: '100%' }
   const center = { lat: 49.026151, lng: 31.483070 }
   const zoom = 6
@@ -17,14 +18,18 @@ const CreateLocation =() => {
       coordinateX: event.latLng.lng()
     })
   }, [])
+  const isTypeSelect = (isType) => {
+    setIsType(isType)
+  }
   return <MainLayout title={'Create Location'}>
     <section className={ css(baseStyle.wrapper) }>
       <SectionTitle title='Редагування' />
       <div className={css(baseStyle.boxShadow, baseStyle.wrapperCreateLocation)}>
-        <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } search={ true } />
+        <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } search={ true } isType={ isType } />
         <CreateLocationSelector
           // @ts-ignore
           latLng={ latLng }
+          isTypeSelect={ isTypeSelect }
         />
       </div>
     </section>

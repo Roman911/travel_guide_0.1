@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IComments extends Document {
   idAuthor: string,
@@ -34,6 +34,6 @@ const CommentsSchema = new Schema({
   },
 }, {
   timestamps: true
-});
+})
 
-module.exports = mongoose.model<IComments>('Comments', CommentsSchema);
+module.exports = mongoose.model<IComments>('Comments', CommentsSchema)

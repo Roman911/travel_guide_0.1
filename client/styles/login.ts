@@ -9,19 +9,18 @@ export default StyleSheet.create({
   },
   logo: {
     background: background,
-    width: 155,
-    height: 70,
-    margin: '0 auto',
+    width: 110,
+    height: 50,
+    margin: '40px auto',
     backgroundSize: 'cover'
   },
   title: {
     textAlign: 'center',
-    fontWeight: 100,
-    margin: 15
+    fontSize: 56,
+    fontWeight: 800,
+    margin: 50
   },
   wrapperForm: {
-    border: '1px solid #d8dee2',
-    borderRadius: 5,
     background: '#fff',
     padding: '10px 20px'
   },
@@ -29,8 +28,12 @@ export default StyleSheet.create({
     margin: '10px 0 6px'
   },
   inputSub: {
-    margin: '10px 0',
-    textAlign: 'end'
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  resPassword: {
+    fontSize: 12
   },
   bottomBlock: {
     marginTop: 15,

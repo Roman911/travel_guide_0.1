@@ -5,11 +5,12 @@ import { btn } from '../../../variabels/colors'
 export default StyleSheet.create({
   text: {
     fontSize: 14,
-    paddingLeft: 3
+    paddingLeft: 3,
+    lineHeight: 0
   },
   icon: {
     height: 18,
-    paddingBottom: 4
+    padding: '2px 0'
   },
   iconActive: {
     color: btn

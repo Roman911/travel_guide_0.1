@@ -19,9 +19,10 @@ type clsProps = {
     coordinateY: number,
     coordinateX: number
   } | null
+  isTypeSelect: (mkcdsl: string) => string
 }
 
-const CreateLocationSelector: React.FC<clsProps> = ({ latLng }) => {
+const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelect }) => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createLocations ] = useMutation(addLocationMutation)
@@ -66,6 +67,9 @@ const CreateLocationSelector: React.FC<clsProps> = ({ latLng }) => {
       setFieldValue( 'coordinateX', String(latLng.coordinateX) )
     }
   }, [latLng])
+  useEffect(() => {
+    isTypeSelect(values.isType)
+  }, [values.isType])
   const myInput = ( id: string, title: string, value: string | number | string[] | undefined ) => {
     return <div className={css( styles.blockInput )}>
       <p className={css( styles.paragraph )}>{ title }</p>

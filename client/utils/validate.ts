@@ -5,7 +5,7 @@ export default (props: any) => {
       if (!value) {
         errors.name = 'Required';
       } else if (!/^(?=.*[a-z])/.test(value)) {
-        errors.name = 'Invalid email address';
+        errors.name = "Некоректне ім'я";
       }
     },
     email: (value: string) => {
@@ -16,21 +16,21 @@ export default (props: any) => {
           value
         )
       ) {
-        errors.email = 'Invalid email address';
+        errors.email = 'Некоректний емейл';
       }
     },
     password: (value: string) => {
       if (!value) {
         errors.password = 'Required';
       } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(value)) {
-        errors.password = 'Make password harder'
+        errors.password = 'Некоректний пароль'
       }
     },
     password2: (value: any) => {
       if (!value) {
         errors.password2 = 'Required';
       } else if (values.password !== value) {
-        errors.password2 = 'Make password harder'
+        errors.password2 = 'Некоректний пароль'
       }
     }
   };

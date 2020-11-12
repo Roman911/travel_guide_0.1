@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   margin: 0;
-  font-family: helvetica,arial sans-serif;
+  font-family: 'Roboto',arial sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(56, 56, 56);
@@ -47,10 +48,14 @@ a:hover {
 }
 input, textarea, select, option {
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   padding: 5px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4rem;
+  box-shadow: 0 0 0 1000px #fff inset!important;
+}
+label {
+  font-size: 1.1rem;
 }
 button {
   border: none;

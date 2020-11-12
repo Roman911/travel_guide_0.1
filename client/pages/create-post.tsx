@@ -64,7 +64,6 @@ const CreatePost = () => {
       })
     }
   })
-  console.log(values.editor)
   const myInputRadio = ( id: string, tittle: string ) => {
     const label = id === values.type_material ? css( inputStyles.label, inputStyles.labelActive, baseStyles.boxShadow) : css(inputStyles.label)
     return <>

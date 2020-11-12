@@ -1,7 +1,7 @@
 import Head from "next/head"
 import React from "react"
 import { useSelector, useDispatch } from 'react-redux'
-import { NavBar, InformWindow } from ".."
+import { NavBar, InformWindow, NavBarAuth } from ".."
 import { ProfileSidebar } from "../../modules"
 import { modalActions } from '../../redux/actions'
 import { Modal } from "../../types/modal"
@@ -9,7 +9,7 @@ import { User } from "../../types/user"
 import { SidebarProps } from '../../types/sidebar'
 import { UseAuth } from "../../hooks/auth.hook"
 
-export const MainLayout = ({ children, title }) => {
+export const MainLayout = ({ children, title, auth }) => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const { showSidebar } = useSelector((state: { sidebar: SidebarProps }) => state.sidebar)
@@ -25,7 +25,7 @@ export const MainLayout = ({ children, title }) => {
         { title } | Travel Guide
       </title>
     </Head>
-    <NavBar />
+    { auth ? <NavBarAuth /> : <NavBar /> }
     <main>
       { children }
     </main>
