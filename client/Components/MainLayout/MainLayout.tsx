@@ -9,7 +9,13 @@ import { User } from "../../types/user"
 import { SidebarProps } from '../../types/sidebar'
 import { UseAuth } from "../../hooks/auth.hook"
 
-export const MainLayout = ({ children, title, auth }) => {
+type MainLayoutProps = {
+  children: any
+  title: string
+  auth?: boolean
+}
+
+export const MainLayout: React.FC<MainLayoutProps> = ({ children, title, auth }) => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const { showSidebar } = useSelector((state: { sidebar: SidebarProps }) => state.sidebar)

@@ -4,20 +4,35 @@ export default StyleSheet.create({
   wrapper: {
     width: 225,
     position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    left: -240,
-    padding: '8px 16px'
+    padding: '8px 16px',
+    background: 'white'
   },
   triangle: {
     position: 'absolute',
+    width: 0,
+    height: 0
+  },
+  left: {
+    top: '50%',
+    transform: 'translateY(-50%)',
+    left: -240
+  },
+  bottom: {
+    bottom: -20
+  },
+  triangleForLeft: {
     top: '50%',
     transform: 'translateY(-50%)',
     right: -12,
-    width: 0,
-    height: 0,
     borderTop: '10px solid transparent',
     borderLeft: '12px solid white',
     borderBottom: '10px solid transparent'
+  },
+  triangleForBottom: {
+    top: -12,
+    left: 20,
+    borderLeft: '10px solid transparent',
+    borderRight: '10px solid transparent',
+    borderBottom: '12px solid white'
   }
 })

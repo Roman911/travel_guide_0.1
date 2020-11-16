@@ -10,7 +10,7 @@ type ActionType = {
   type: string
 }
 
-export default (state = initialState, actions: ActionType) => {
+const user = (state = initialState, actions: ActionType) => {
   switch (actions.type) {
     case 'USER:SET_DATA':
       return {
@@ -26,3 +26,5 @@ export default (state = initialState, actions: ActionType) => {
       return state
   }
 }
+
+export default user

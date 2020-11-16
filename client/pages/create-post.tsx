@@ -89,7 +89,7 @@ const CreatePost = () => {
       <textarea className={css(inputStyles.input)} id={ id } onChange={ handleChange } onBlur={ handleBlur } />
     </div>
   }
-  return <MainLayout title={'Create Post'}>
+  return <MainLayout title={'Create Post'} >
     <section className={ css(baseStyles.wrapper) }>
       <SectionTitle title='Редагування' />
       <div className={css(baseStyles.boxShadow, styles.wrapper)}>

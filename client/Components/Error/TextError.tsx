@@ -3,9 +3,21 @@ import { css } from "aphrodite/no-important"
 import baseStyles from '../../styles'
 import styles from './styles'
 
-export const TextError = props => {
-  return <div className={ css(baseStyles.boxShadow, styles.wrapper) }>
-    { props.children }
-    <div className={ css(styles.triangle) }/>
-  </div>
+export const TextError = ({ className, children }) => {
+
+  const element = ({ styleWrapper, triangle }) => {
+    return <div className={ css(baseStyles.boxShadow, styles.wrapper, styleWrapper) }>
+      { children }
+      <div className={ css(styles.triangle, triangle) }/>
+    </div>
+  }
+
+  switch (className) {
+    case 'left':
+      return element({ styleWrapper: styles.left, triangle: styles.triangleForLeft })
+    case 'bottom':
+      return element({ styleWrapper: styles.bottom, triangle: styles.triangleForBottom })
+    default:
+      return null
+  }
 }

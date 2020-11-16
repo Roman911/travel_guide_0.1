@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { widthsDescTop, widthBlocks } from '../../variabels/dimensions'
+import { widthsDescTop, widthBlocks } from '../../../variabels/dimensions'
 
 export default StyleSheet.create({
   wrapperL: {

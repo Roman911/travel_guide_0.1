@@ -7,7 +7,7 @@ type ActionType = {
   type: string
 }
 
-export default (state = initialState, actions: ActionType) => {
+const sidebar = (state = initialState, actions: ActionType) => {
   switch (actions.type) {
     case 'SHOW_SIDEBAR':
       return {
@@ -29,3 +29,5 @@ export default (state = initialState, actions: ActionType) => {
       return state;
   }
 }
+
+export default sidebar

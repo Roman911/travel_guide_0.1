@@ -6,7 +6,7 @@ import { useLazyQuery } from '@apollo/react-hooks'
 import { css } from "aphrodite/no-important"
 import { loginQuery } from '../apollo/queries/login'
 import validateForm from '../utils/validate'
-import { Loading, MainLayout, HeaderForm, LoginForm } from "../Components"
+import { Loading, MainLayout, HeaderForm, AuthForm } from "../Components"
 import loginStyles from '../styles/login'
 import withApollo from "../lib/withApollo"
 import { userActions, modalActions } from '../redux/actions'
@@ -41,13 +41,28 @@ const Login: React.FC = () => {
     router.push('/').then(r => r)
   }
 
+  const dataForm = [
+    {
+      control: 'input',
+      id: 'email',
+      type: 'email',
+      label: 'Введіть email'
+    },
+    {
+      control: 'input',
+      id: 'password',
+      type: 'password',
+      label: 'Введіть пароль'
+    }
+  ]
+
   return <MainLayout title='Вхід' auth={ true } >
     <section className={ css(loginStyles.wrapper) }>
       <HeaderForm title='Вхід' text='У вас ще нема акаунта?' link='/registration' btn='Створити' />
       <Formik initialValues={ initialValues } onSubmit={ onSubmit } validate={ validate } >
         {formik => {
           return <Form>
-            <LoginForm formik={ formik } />
+            <AuthForm formik={ formik } dataForm={ dataForm } btn='Увійти' />
           </Form>
         }}
       </Formik>

@@ -1,21 +1,16 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { borders, text, icons, btn } from "../../../variabels/colors"
+import { borders, icons, btn } from "../../../variabels/colors"
 
 export default StyleSheet.create({
   wrapper: {
     border: `2px solid ${ borders.border }`,
     padding: 10,
     display: 'flex',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    marginBottom: 20
   },
   block: {
-    width: '100%'
-  },
-  textarea: {
-    padding: '10px 15px',
-    color: text.textInput,
-    fontWeight: 600,
     width: '100%'
   },
   iconNoAvatar: {
@@ -52,5 +47,11 @@ export default StyleSheet.create({
     ':hover': {
       color: 'red'
     }
+  },
+  submit: {
+    marginBottom: 25
+  },
+  submitPosition: {
+    justifyContent: 'flex-end'
   }
 })

@@ -4,7 +4,7 @@ const background = `url('./logo.png')`
 
 export default StyleSheet.create({
   wrapper: {
-    width: 340,
+    width: 400,
     margin: '20px auto'
   },
   logo: {
@@ -31,6 +31,9 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between'
+  },
+  inputSubRegister: {
+    justifyContent: 'flex-end'
   },
   resPassword: {
     fontSize: 12
