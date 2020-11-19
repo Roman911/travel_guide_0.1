@@ -7,3 +7,5 @@ export { LocationInformation } from './LocationInformation/Containers/LocationIn
 export { InformUserLocation } from './InformUserLocation/Containers/InformUserLocation'
 export { Populars } from './Populars/Containers/Populars'
 export { PostShow } from './Post/Containers/Post'
+export { CreateLocationSelector } from './CreateLocation/Containers/CreateLocationSelector'
+export { CreatePost } from './CreatePost/Containers/CreatePost'

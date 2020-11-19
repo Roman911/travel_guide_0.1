@@ -1,5 +1,6 @@
-import Link from "next/link"
 import React from "react"
+import Link from "next/link"
+import Image from "next/image"
 import { css } from 'aphrodite/no-important'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
@@ -19,7 +20,9 @@ export const NavBar = () => {
   return <nav className={ css(styles.nav, baseStyles.boxShadow) }>
     <div className={ css(baseStyles.wrapper, baseStyles.flexSB) }>
       <div className={ css(baseStyles.flexSB) }>
-        <div className={ css(styles.logo) } />
+        <div className={ css(styles.logo) } >
+          <Image src='./logo.png' layout='fixed'  />
+        </div>
         <ul>
           { links }
         </ul>

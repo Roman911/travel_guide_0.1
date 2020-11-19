@@ -1,12 +1,13 @@
 import React from "react"
-import ReactQuill from 'react-quill'
+import dynamic from "next/dynamic"
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
-type MyEditorProps = {
+type EditorProps = {
   onChange: (arg0: string, arg1: any) => void
   editor: string
 }
 
-export const Editor: React.FC<MyEditorProps> = (props): any => {
+export const Editor: React.FC<EditorProps> = (props): any => {
 
   const onChange = (setValue: string) => {
     props.onChange('editor', setValue)

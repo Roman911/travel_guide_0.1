@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
-import {borders, error, isOk, text} from "../../variabels/colors"
+import {borders, error, icons, isOk, text, btn, socSet} from "../../variabels"
 
 export default StyleSheet.create({
   // Input
@@ -41,6 +41,48 @@ export default StyleSheet.create({
   },
   labelTouched: {
     transform: 'translate3d(-23px,-23px,0) scale(.67)'
+  },
+  //Checkbox
+  text: {
+    padding: '15px 20px',
+    width: 'auto'
+  },
+  checkbox: {
+    fontSize: 12,
+    cursor: 'pointer'
+  },
+  checkboxInner: {
+    marginRight: 5,
+    border: `1px solid ${ borders.borderInput }`,
+    width: 14,
+    height: 14,
+    borderRadius: 4,
+    paddingLeft: 1
+  },
+  checkboxInnerActive: {
+    background: socSet.facebook
+  },
+  iconCheck: {
+    color: '#fff'
+  },
+  //Radio
+  inputRadio: {
+    display: 'none'
+  },
+  labelWrapper: {
+    cursor: 'pointer',
+    marginRight: 15
+  },
+  labelRadio: {
+    margin: '0 6px',
+    border: `2px solid ${ icons }`,
+    height: 12,
+    width: 12,
+    borderRadius: 12
+  },
+  labelActive: {
+    background: icons,
+    transition: '200ms'
   },
   // Textarea
   wrapperTextarea: {

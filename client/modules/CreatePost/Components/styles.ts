@@ -25,5 +25,16 @@ export default StyleSheet.create({
   // Tickets
   input: {
     width: '100%'
+  },
+  btnBlock: {
+    border: 'none',
+    paddingTop: 10
+  },
+  paragraph: {
+    paddingBottom: 10
+  },
+  submit: {
+    marginTop: 30,
+    justifyContent: 'flex-end'
   }
 })

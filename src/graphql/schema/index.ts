@@ -91,7 +91,6 @@ type Locations {
   small_text: String
   coordinates: [String]
   isType: String
-  isTypeSettlement: String
   createdAt: String
   city: String
   district: String
@@ -107,7 +106,6 @@ input LocationsInput {
   small_text: String
   coordinates: [String]
   isType: String
-  isTypeSettlement: String
   city: String
   district: String
   region: String

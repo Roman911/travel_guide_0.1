@@ -9,7 +9,6 @@ type MyLocationsInputProps = {
   small_text: string
   coordinates: number[]
   isType: string
-  isTypeSettlement: string
   city: string
   district: string
   region: string
@@ -54,7 +53,6 @@ module.exports = {
       small_text: locationsInput.small_text,
       coordinates: locationsInput.coordinates,
       isType: locationsInput.isType,
-      isTypeSettlement: locationsInput.isTypeSettlement,
       city: locationsInput.city,
       district: locationsInput.district,
       region: locationsInput.region,

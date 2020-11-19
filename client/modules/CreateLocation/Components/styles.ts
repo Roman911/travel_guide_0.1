@@ -1,6 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
-import { widthBlocks } from '../../variabels/dimensions'
-import { text } from "../../variabels/colors"
+import { text, widthBlocks } from '../../../variabels'
 
 export default StyleSheet.create({
   wrapper: {
