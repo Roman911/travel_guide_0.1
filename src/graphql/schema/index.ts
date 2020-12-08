@@ -6,8 +6,7 @@ type Post {
     author: Author!
     title: String
     type_material: String
-    coverNews: String
-    coverPost: String
+    cover: String
     link: String
     tags: [String]
     tickets: [String]

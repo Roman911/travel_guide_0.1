@@ -9,7 +9,7 @@ type ProfileSidebarProps = {
   data: UserData
 }
 
-export const ProfileSidebar: React.FC<ProfileSidebarProps> = ({ data }) => {
+const ProfileSidebar: React.FC<ProfileSidebarProps> = ({ data }) => {
   const dispatch = useDispatch()
   const { name, avatar, email } = data
   const { isOpen } = useSelector((state: { sidebar: SidebarProps }) => state.sidebar)
@@ -27,3 +27,5 @@ export const ProfileSidebar: React.FC<ProfileSidebarProps> = ({ data }) => {
 
   return <Sidebar name={ name } avatar={ avatar } email={ email } closeSidebar={ closeSidebar } isOpen={ isOpen } logout={ logout } />
 }
+
+export default ProfileSidebar

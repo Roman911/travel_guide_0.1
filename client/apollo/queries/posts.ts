@@ -7,7 +7,7 @@ export const postsQuery = gql`
       title
       createdAt
       small_text
-      coverNews
+      cover
       views
       likes
       author {

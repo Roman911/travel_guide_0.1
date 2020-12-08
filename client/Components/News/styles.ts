@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
-import { widthBlocks } from "../../variabels/dimensions"
+import { widthBlocks } from "../../variabels"
 
 export default StyleSheet.create({
   wrapper: {
@@ -18,8 +18,6 @@ export default StyleSheet.create({
     cursor: 'pointer'
   },
   img: {
-    maxWidth: '100%',
-    height: 190,
     objectFit: 'cover'
   },
   block: {

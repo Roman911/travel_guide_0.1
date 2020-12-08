@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMutation } from '@apollo/react-hooks'
 import { Like } from '../Components/Like'
 import { addLikeMutation, removeLikeMutation } from './mutations'
-import { postQuery } from '../../Post/Containers/queries'
 import { modalActions } from "../../../redux/actions"
 
 import { User } from "../../../types/user"

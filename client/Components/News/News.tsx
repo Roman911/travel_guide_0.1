@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from "next/link"
+import Image from "next/image"
 import { css } from 'aphrodite/no-important'
 import { AuthorPost, ArticleStats } from ".."
 
@@ -17,7 +18,7 @@ export const News: ({item, comments}: MyNewProps) => any = ({ item, comments }):
   return <div className={ css(styles.wrapper) }>
     <div className={ css(styles.content) }>
       <Link href={`/post/[id]`} as={`/post/${ item._id }`} >
-        <img className={ css(styles.img) } src={ item.coverNews } alt=""/>
+        <Image className={ css(styles.img) } src={ `/assets/uploads${ item.cover }` } layout='intrinsic' alt={ item.title } width={336} height={190} />
       </Link>
       <div className={ css(styles.block) }>
         <AuthorPost isArticle={ false } author={ item.author } date={ item.createdAt } />

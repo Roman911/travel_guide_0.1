@@ -1,7 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-const background = `url('./logo.png') no-repeat`
-
 export default StyleSheet.create({
   nav: {
     background: '#fff',
@@ -10,10 +8,6 @@ export default StyleSheet.create({
     top: 0
   },
   logo: {
-    background: background,
-    backgroundSize: 'cover',
-    width: 100,
-    height: 45,
     marginRight: 30
   },
   wrapperInput: {

@@ -4,7 +4,6 @@ import { css } from "aphrodite/no-important"
 import loginStyles from "../../styles/login"
 import { Button, FormikControl } from ".."
 
-
 type AuthFormProps = {
   formik: any
   dataForm: any

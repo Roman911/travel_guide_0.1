@@ -19,7 +19,7 @@ export const Post: React.FC<MyPostProps> = ({ user, post }) => {
       <AuthorPost isArticle={ true } author={ author } date={ createdAt }/>
       <h2 className={css(styles.title)}>{title}</h2>
       <p className={ css(styles.text) }>{small_text}</p>
-      <img className={ css(styles.img) } src={ coverPost } alt=""/>
+      <img className={ css(styles.img) } src={ coverPost } alt="" />
       <div className='editorWrapper' dangerouslySetInnerHTML={{__html: editor}}/>
       <div className={css(baseStyles.flexSB, baseStyles.block, baseStyles.bottom)}>
         <ArticleStats isArticle={ true } views={ views } comments={[]} />

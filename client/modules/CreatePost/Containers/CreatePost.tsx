@@ -11,7 +11,7 @@ import baseStyles from "../../../styles"
 import styles from "../Components/styles"
 import { CreatePostForm } from "../Components/CreatePostForm"
 
-export const CreatePost = () => {
+export default function CreatePost() {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createPost ] = useMutation(addPostMutation)

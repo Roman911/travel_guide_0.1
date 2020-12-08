@@ -5,8 +5,7 @@ type MyPostInputProps = {
   title: string
   idAuthor: string
   type_material: string
-  coverNews: string
-  coverPost: string
+  cover: string
   link: string
   tags: string[]
   tickets: string[]
@@ -52,8 +51,7 @@ module.exports = {
       title: postInput.title,
       idAuthor: postInput.idAuthor,
       type_material: postInput.type_material,
-      coverNews: "undefined",
-      coverPost: "undefined",
+      cover: "undefined",
       link: postInput.link,
       tags: postInput.tags,
       tickets: postInput.tickets,

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { widthsDescTop, widthBlocks } from '../../../variabels/dimensions'
+import { widthsDescTop, widthBlocks } from '../../../variabels'
 
 export default StyleSheet.create({
   wrapperL: {
@@ -23,7 +23,6 @@ export default StyleSheet.create({
     fontWeight: 600
   },
   img: {
-    maxWidth: '100%',
     margin: '10px auto 30px',
     display: 'block'
   }

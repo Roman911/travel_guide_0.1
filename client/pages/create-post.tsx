@@ -1,9 +1,11 @@
 import React from "react"
+import dynamic from "next/dynamic"
 import { css } from "aphrodite/no-important"
 import withApollo from "../lib/withApollo"
 import { MainLayout, SectionTitle } from "../Components"
 import baseStyles from '../styles'
-import { CreatePost } from "../modules"
+
+const CreatePost = dynamic(() => import("../modules/CreatePost/Containers/CreatePost"))
 
 const CreatePosts = () => {
   return <MainLayout title={'Create Post'} >

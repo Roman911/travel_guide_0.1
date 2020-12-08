@@ -24,12 +24,9 @@ const CreateLocation =() => {
   return <MainLayout title={'Create Location'}>
     <section className={ css(baseStyle.wrapper) }>
       <SectionTitle title='Редагування' />
-      <div className={css(baseStyle.boxShadow, baseStyle.wrapperCreateLocation)}>
+      <div className={ css(baseStyle.boxShadow, baseStyle.wrapperCreateLocation) }>
         <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } search={ true } isType={ isType } />
-        <CreateLocationSelector
-          latLng={ latLng }
-          isTypeSelect={ isTypeSelect }
-        />
+        <CreateLocationSelector latLng={ latLng } isTypeSelect={ isTypeSelect } />
       </div>
     </section>
   </MainLayout>

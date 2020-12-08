@@ -21,7 +21,7 @@ export const NavBar = () => {
     <div className={ css(baseStyles.wrapper, baseStyles.flexSB) }>
       <div className={ css(baseStyles.flexSB) }>
         <div className={ css(styles.logo) } >
-          <Image src='./logo.png' layout='fixed'  />
+          <Image src="/assets/logo.png" layout="fixed" width={ 100 } height={ 45 } alt="Travel guide logo" />
         </div>
         <ul>
           { links }

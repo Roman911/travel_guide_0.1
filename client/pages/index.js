@@ -5,8 +5,7 @@ import { getDataFromTree } from '@apollo/react-ssr'
 import withApollo from '../lib/withApollo'
 import { postsQuery, commentsQuery } from "../apollo/queries/posts"
 import { Populars } from "../modules"
-import { MainLayout, SectionTitle, LoadingPost, News } from "../Components"
-import baseStyles from '../styles'
+import { LoadingPost, MainLayout, News } from "../Components"
 import styles from '../styles/news'
 
 const Home = () => {
@@ -24,16 +23,13 @@ const Home = () => {
     return <News key={ index } item={ item } comments={ comments } />
   })
 
-  return <MainLayout title='Home'>
-    <section className={ css(baseStyles.wrapper) }>
-      <SectionTitle title='Новини'/>
-      <div className={css(styles.wrapper)}>
-        <div className={ css(styles.news) }>
-          { news }
-        </div>
-        <Populars />
+  return <MainLayout title='Home' header='Новини' >
+    <div className={css(styles.wrapper)}>
+      <div className={ css(styles.news) }>
+        { news }
       </div>
-    </section>
+      <Populars />
+    </div>
   </MainLayout>
 }
 

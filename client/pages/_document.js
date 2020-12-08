@@ -1,6 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 import React from "react"
 import { StyleSheetServer } from "aphrodite/no-important"
+import favicon from '../assets/favicon.ico'
 
 export default class MyDocument extends Document {
   static async getInitialProps({ renderPage}) {
@@ -23,8 +24,9 @@ export default class MyDocument extends Document {
       <Html>
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200&display=swap&subset=cyrillic" />
-        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" href={ favicon } />
         <style data-aphrodite dangerouslySetInnerHTML={{__html: this.props.css.content}}/>
+        <title>Travel Guide</title>
       </Head>
       <body>
       <Main/>
