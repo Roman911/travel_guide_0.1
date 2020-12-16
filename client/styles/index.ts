@@ -1,13 +1,16 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { widthsDescTop, heightIcons } from '../variabels/dimensions'
-import { shadows, icons } from '../variabels/colors'
+import { widthsDescTop, heightIcons, shadows, icons } from '../variabels'
 
 export default StyleSheet.create({
   wrapper: {
     maxWidth: widthsDescTop.widthL,
     margin: '0 auto',
     padding: '10px 20px'
+  },
+  wrapperLogin: {
+    width: 400,
+    margin: '20px auto'
   },
   flexSB: {
     display: 'flex',

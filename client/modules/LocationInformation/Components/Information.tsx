@@ -20,7 +20,7 @@ export const Information: React.FC<MyInformationProps> = ({ location, handleClic
 
   return <div className={ viewWindow }>
     <div className={ css(styles.blockImg) }>
-      <img src={ cover } alt=""/>
+      <img className={ css(styles.cover) } src={ cover } alt=""/>
     </div>
     <div className={ css(styles.block, baseStyle.flexSB) }>
       <FontAwesomeIcon onClick={ handleClick } className={ css(styles.icon) } icon={ faArrowLeft }/>
@@ -35,10 +35,7 @@ export const Information: React.FC<MyInformationProps> = ({ location, handleClic
       <Link href={`/post/[id]`} as={ `/post/${ linkToPost }` }>
         <a><span className={css(styles.link)}>{ title }</span></a>
       </Link>
-    </div> :
-      <div>
-        123
-      </div>
+    </div> : null
     }
   </div>
 }

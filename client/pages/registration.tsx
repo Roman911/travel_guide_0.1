@@ -2,13 +2,11 @@ import React from "react"
 import { useMutation } from "@apollo/client"
 import {Formik, Form} from "formik"
 import { useDispatch } from "react-redux"
-import { css } from "aphrodite/no-important"
 import withApollo from "../lib/withApollo"
 import { MainLayout, HeaderForm, AuthForm } from "../Components"
 import { addUserMutation } from "../apollo/mutations/addUser"
 import validateForm from '../utils/validate'
 import { userActions, modalActions } from "../redux/actions"
-import loginStyles from '../styles/login'
 
 const Registration: React.FC = () => {
   const dispatch = useDispatch()
@@ -65,16 +63,14 @@ const Registration: React.FC = () => {
     }
   ]
   return <MainLayout title='Registration' auth={ true } >
-    <section className={css(loginStyles.wrapper)}>
-      <HeaderForm title='Реєстрація' text='Вже є акаунт?' link='/login' btn='Авторизуватися' />
-      <Formik initialValues={ initialValues } onSubmit={ onSubmit } validate={ validate }>
-        {formik => {
-          return <Form>
-            <AuthForm formik={ formik } dataForm={ dataForm } btn='Створити акаунт' />
-          </Form>
-        }}
-      </Formik>
-    </section>
+    <HeaderForm title='Реєстрація' text='Вже є акаунт?' link='/login' btn='Авторизуватися' />
+    <Formik initialValues={ initialValues } onSubmit={ onSubmit } validate={ validate }>
+      {formik => {
+        return <Form>
+          <AuthForm formik={ formik } dataForm={ dataForm } btn='Створити акаунт' />
+        </Form>
+      }}
+    </Formik>
   </MainLayout>
 }
 

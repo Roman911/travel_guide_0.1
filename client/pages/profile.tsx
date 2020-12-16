@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { useQuery } from '@apollo/react-hooks'
 import { locationsUserQuery } from '../apollo/queries/locationsUser'
-
 import { Loading, MainLayout, ProfileMain } from "../Components"
 import withApollo from "../lib/withApollo"
 import { User } from '../types/user'

@@ -3,10 +3,6 @@ import { StyleSheet } from 'aphrodite/no-important'
 const background = `url('./logo.png')`
 
 export default StyleSheet.create({
-  wrapper: {
-    width: 400,
-    margin: '20px auto'
-  },
   logo: {
     background: background,
     width: 110,

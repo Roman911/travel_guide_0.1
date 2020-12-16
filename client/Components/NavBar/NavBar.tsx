@@ -1,4 +1,5 @@
 import React from "react"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import Image from "next/image"
 import { css } from 'aphrodite/no-important'
@@ -10,10 +11,12 @@ import { Links } from "./config"
 import { UseRoutes } from "../../modules"
 
 export const NavBar = () => {
+  const router = useRouter()
+  const pathname = router.pathname
 
   const links = Links.link.map((item, index) => {
     return <li key={ index }>
-      <Link href={ item.path }><a>{ item.title }</a></Link>
+      <Link href={ item.path }><a className={ css( pathname === item.path && styles.linkActive ) }>{ item.title }</a></Link>
     </li>
   })
 

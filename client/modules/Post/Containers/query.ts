@@ -5,10 +5,10 @@ export const postQuery = gql`
     post(_id: $_id) {
       _id
       title
+      cover
       createdAt
       small_text
       text
-      coverPost
       views
       likes
       tickets

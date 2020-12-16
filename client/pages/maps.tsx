@@ -1,12 +1,9 @@
 import React from "react"
-import dynamic from "next/dynamic"
 import { useQuery } from '@apollo/react-hooks'
 import { getDataFromTree } from "@apollo/react-ssr"
 import { locationsQuery } from '../apollo/queries/map'
-import { Loading, MainLayout } from "../Components"
+import { Loading, MainLayout, Maps } from "../Components"
 import withApollo from "../lib/withApollo"
-
-const Maps = dynamic(() => import('../Components/Maps/Maps'))
 
 const Map: React.FC = (): any => {
   const { loading, error, data } = useQuery( locationsQuery )
@@ -14,7 +11,7 @@ const Map: React.FC = (): any => {
   if (error) return `Error! ${error}`
   const { locations } = data
 
-  return <MainLayout title='Maps' header='Карта' >
+  return <MainLayout title='Maps' header='Карти' >
     <Maps locations={ locations } />
   </MainLayout>
 }

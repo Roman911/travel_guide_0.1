@@ -3,14 +3,13 @@ import Link from "next/link"
 import { css } from "aphrodite/no-important"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebookF, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
-
 import baseStyles from '../../styles'
 import styles from './styles'
 import { Avatar, Button, Rating } from "../"
-
 import { UserData } from '../../types/user'
 import { ToVisit } from "./ToVisit"
 import {IconDefinition} from "@fortawesome/fontawesome-common-types"
+
 type ProfileMainProps = {
   data: UserData
   handleClick: (arg: string) => void

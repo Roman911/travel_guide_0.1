@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
-import { icons } from "../../variabels/colors"
-import { widthBlocks } from "../../variabels/dimensions"
+import { icons } from "../../variabels"
+import { widthBlocks } from "../../variabels"
 
 const lineAnimation = {
   '0%': {
@@ -11,6 +11,15 @@ const lineAnimation = {
   },
   '100%': {
     background: '#dadada'
+  }
+}
+
+const ldsRing = {
+  '0%': {
+    transform: 'rotate(0deg)'
+  },
+  '100%': {
+    transform: 'rotate(360deg)'
   }
 }
 
@@ -77,5 +86,43 @@ export default StyleSheet.create({
   },
   lineMB30: {
     marginBottom: 26
+  },
+  //Spin
+  wrapperSpin: {
+    textAlign: 'center'
+  },
+  ldsRing: {
+    display: 'inline-block',
+    position: 'relative',
+    width: 56,
+    height: 56
+  },
+  ldsRingDiv: {
+    boxSizing: 'border-box',
+    display: 'block',
+    position: 'absolute',
+    width: 40,
+    height: 40,
+    margin: 8,
+    borderRadius: '50%',
+    animation: 'lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite',
+    animationName: ldsRing
+  },
+  ldsRingDivLight: {
+    border: '5px solid #fff',
+    borderColor: '#fff transparent transparent transparent'
+  },
+  ldsRingDivDark: {
+    border: `5px solid ${ icons }`,
+    borderColor: `${ icons } transparent transparent transparent`
+  },
+  ldsRingDivC1: {
+    animationDelay: '-0.45s'
+  },
+  ldsRingDivC2: {
+    animationDelay: '-0.3s'
+  },
+  ldsRingDivC3: {
+    animationDelay: '-0.15s'
   }
 })

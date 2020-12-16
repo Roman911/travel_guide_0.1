@@ -34,9 +34,9 @@ export const Likes:React.FC<MyLikesProps> = ({ id, likes, post }) => {
   const [ removeLike ] = useMutation(removeLikeMutation)
 
   const handleChangeAdd = () => {
-    setQuantityLikes(quantityLikes +1)
-    setUserLike(true)
     if (userId) {
+      setQuantityLikes(quantityLikes +1)
+      setUserLike(true)
       addLike({
         variables: { postId: id, userId: userId },
       }).then(r =>r)

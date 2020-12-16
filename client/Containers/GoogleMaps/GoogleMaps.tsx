@@ -1,6 +1,7 @@
-import React, {useCallback, useRef, useState} from "react"
+import { useRouter } from "next/router"
+import React, { useCallback, useRef, useState } from "react"
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
-import { Loading } from "../../Components"
+import { Spin } from "../../Components"
 import { LocationInformation } from "../../modules"
 import { Search } from "./Search"
 import { Locations } from "../../types/locations"
@@ -28,6 +29,13 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
     // @ts-ignore
     libraries
   })
+
+  const router = useRouter()
+  let query
+  if (Object.keys(router.query).length !== 0) {
+    query = router.query
+  }
+
   const [ searchMarker, setSearchMarker ] = useState(false)
   const mapRef = useRef()
   const onMapLoad = useCallback((map) => {
@@ -56,7 +64,6 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
   }
   const renderMap = () => {
     return <div style={{position: 'relative', width: '100%'}}>
-      { console.log(center, zoom) }
       { search && <Search panTo={ panTo } /> }
       <GoogleMap
         mapContainerStyle={ mapContainerStyle }
@@ -73,7 +80,7 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
         } : null}
       >
         { selectedPark && <LocationInformation _id={ selectedPark } handleClick={ handleClick } closeWindow={ closeWindow } /> }
-        { locations && locations.map((park, index) => (
+        { !query && locations && locations.map((park, index) => (
           <Marker
             key={ index }
             onClick={() => {
@@ -89,6 +96,10 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
           position={{ lat: marker.lat, lng: marker.lng }}
           icon={ isType !== 'other' ? { url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${isType}.png` } : null }
         /> }
+        { query && <Marker
+          position={{ lat: Number(query.lat), lng: Number(query.lng) }}
+          icon={ query.isType !== 'other' ? { url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${query.isType}.png` } : null }
+        /> }
         { searchMarker && <Marker
           position={center}
         /> }
@@ -98,5 +109,5 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
   if (loadError) {
     return <div>Неможливо завантажити карту</div>
   }
-  return isLoaded ? renderMap() : <Loading/>
+  return isLoaded ? renderMap() : <Spin />
 }

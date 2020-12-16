@@ -10,7 +10,7 @@ type PostShowProps = {
   _id: any
 }
 
-export const PostShow: React.FC<PostShowProps> = ({ _id }): any => {
+export const PostShow: React.FC<PostShowProps> =  ({ _id }): any => {
   const user = useSelector((state: { user: User }) => state.user)
   const { loading, error, data } = useQuery(postQuery, {
     variables: { _id }

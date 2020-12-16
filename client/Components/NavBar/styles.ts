@@ -1,4 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
+import { btn } from '../../variabels'
 
 export default StyleSheet.create({
   nav: {
@@ -18,15 +19,15 @@ export default StyleSheet.create({
   input: {
     width: '100%'
   },
+  linkActive: {
+    color: btn
+  },
   //NavBarAuth
   wrapper: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '20px 50px 70px'
-  },
-  img: {
-    height: 56
   },
   closed: {
     fontFamily: 'Montserrat, sans-serif',

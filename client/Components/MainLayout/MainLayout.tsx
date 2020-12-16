@@ -3,7 +3,7 @@ import Head from "next/head"
 import dynamic from "next/dynamic"
 import { useSelector, useDispatch } from 'react-redux'
 import { css } from "aphrodite/no-important"
-import { NavBar, NavBarAuth, SectionTitle } from ".."
+import { NavBar, NavBarAuth, SectionTitle, Spin } from ".."
 import { modalActions } from '../../redux/actions'
 import { Modal } from "../../types/modal"
 import { User, UserData } from "../../types/user"
@@ -28,10 +28,10 @@ type MainLayoutProps = {
 }
 
 const InformWindow = dynamic<InformWindowProps>(() => import('../InformWindow/InformWindow') as any, {
-  loading: () => <p>Loading...</p>
+  loading: () => <Spin />
 })
 const ProfileSidebar =dynamic<ProfileSidebarProps>(() => import('../../modules/ProfileSidebar/Containers/ProfileSidebar') as any, {
-  loading: () => <p>Loading...</p>
+  loading: () => <Spin />
 })
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ children, title, auth, header }) => {
@@ -46,12 +46,13 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children, title, auth, h
 
   return <>
     <Head>
+      <meta name="description" content="Ми про подорожі" />
       <title>
         { title } | Travel Guide
       </title>
     </Head>
     { auth ? <NavBarAuth /> : <NavBar /> }
-    <main className={ css(baseStyles.wrapper) }>
+    <main className={ css(baseStyles.wrapper, auth && baseStyles.wrapperLogin) }>
       { header && <SectionTitle title={ header } /> }
       { children }
     </main>

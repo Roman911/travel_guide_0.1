@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { btn } from '../../../variabels/colors'
+import { btn } from '../../../variabels'
 
 const translateKeyframes = {
   '0%': {
@@ -40,6 +40,9 @@ export default StyleSheet.create({
   },
   blockImg: {
     lineHeight: 0
+  },
+  cover: {
+    maxWidth: '100%'
   },
   title: {
     color: '#fff'

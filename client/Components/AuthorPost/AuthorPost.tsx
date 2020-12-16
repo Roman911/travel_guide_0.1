@@ -23,6 +23,5 @@ export const AuthorPost = ({ isArticle, author, date }: MyAuthorPostProps) => {
         <Date date={ date } format='LL'/>
       </div>
     </div>
-
   </div>
 }

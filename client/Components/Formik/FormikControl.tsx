@@ -1,4 +1,3 @@
-import React from "react"
 import { Checkbox, Input, InputGroup, Radio, Select, TextArea } from "./index"
 
 export const FormikControl = ({ control, ...rest }) => {

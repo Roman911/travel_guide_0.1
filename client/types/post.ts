@@ -3,7 +3,7 @@ export type PostData = {
   title: string
   small_text: string
   text: string
-  coverPost: string
+  cover: string
   views: number
   likes: Array<string>
   author: { avatar: string; name: string; }

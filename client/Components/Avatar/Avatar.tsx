@@ -19,16 +19,20 @@ export const Avatar = ({ avatar, name , size }: MyAvatarProps) => {
   }
 
   let avatarSize
-  if (size === 'S') {
-    avatarSize = styles.avatarS
-  } else if (size === 'L') {
-    avatarSize = styles.avatarL
-  } else if (size === 'XL') {
-    avatarSize = styles.avatarXL
+  switch (size) {
+    case 'S':
+      avatarSize = styles.avatarS
+      break
+    case 'L':
+      avatarSize = styles.avatarL
+      break
+    case 'XL':
+      avatarSize = styles.avatarXL
+      break
+    default:
+      return null
   }
-  return <>
-    <div style={ avatarBG().background } className={ css(styles.imgAv, avatarSize, baseStyles.flex, styles.background) }>
-      { avatarBG().letter }
-    </div>
-  </>
+  return <div style={ avatarBG().background } className={ css(styles.imgAv, avatarSize, baseStyles.flex, styles.background) }>
+    { avatarBG().letter }
+  </div>
 }

@@ -9,7 +9,7 @@ type CommentsProps = {
   id: string
 }
 
-export const Comments: React.FC<CommentsProps> = ({ id }): any => {
+const Comments: React.FC<CommentsProps> = ({ id }): any => {
   const { loading, error, data } = useQuery( commentsQuery, {
     variables: { postId: id }
   })
@@ -23,3 +23,5 @@ export const Comments: React.FC<CommentsProps> = ({ id }): any => {
     <ShowAllComments comments={ commentsReverse } postId={ id } />
   </>
 }
+
+export default Comments
