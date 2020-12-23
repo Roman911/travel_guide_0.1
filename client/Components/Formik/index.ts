@@ -1,6 +1,0 @@
-export { Checkbox } from './Checkbox'
-export { Input } from './Input'
-export { InputGroup } from './InputGroup'
-export { Radio } from './Radio'
-export { TextArea } from './Textarea'
-export { Select } from './Select'

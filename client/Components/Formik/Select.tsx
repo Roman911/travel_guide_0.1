@@ -4,12 +4,16 @@ import { css } from "aphrodite/no-important"
 import styles from "./styles"
 
 type SelectProps = {
-  id: string
-  label: string
-  options: any
+  rest: {
+    id: string
+    label: string
+    options: any
+  }
 }
 
-export const Select: React.FC<SelectProps> = ({ id, label, options }) => {
+const Select: React.FC<SelectProps> = ({ rest }) => {
+  const { id, label, options } = rest
+
   return <div className={ css( styles.inputWrapper ) }>
     <label htmlFor={ id } className={ css(styles.label, styles.labelTouched) }>{ label }</label>
     <Field as='select' id={ id } name={ id } className={ css(styles.input) } >
@@ -19,3 +23,5 @@ export const Select: React.FC<SelectProps> = ({ id, label, options }) => {
     </Field>
   </div>
 }
+
+export default Select

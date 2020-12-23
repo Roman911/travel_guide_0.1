@@ -1,12 +1,19 @@
 import { useRouter } from "next/router"
-import React, {useCallback, useEffect, useRef, useState} from "react"
+import dynamic from "next/dynamic"
+import React, { useCallback, useEffect, useRef, useState } from "react"
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 import { Spin } from "../../../Components"
 import { LocationInformation } from "../../"
-import { Search } from "../../../Containers/GoogleMaps/Search"
 import { Locations } from "../../../types/locations"
-
 import { MarkersController } from '../Components/MarkersController'
+
+type SearchProps = {
+  panTo: any
+}
+
+const Search = dynamic<SearchProps>(() => import('../../Search/Containers/Search') as any, {
+  loading: () => <Spin />
+})
 
 type MyGoogleMapsProps = {
   mapContainerStyle: { height: string, width: string }
@@ -52,9 +59,9 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
       setMarker({
         control: 'MarkersMap',
         options: {
-          setSelectedPark: setSelectedPark,
-          locations: locations
-        },
+          setSelectedPark,
+          locations
+        }
       })
     }
   }, [ router, locations ])
@@ -83,11 +90,12 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
       setCloseWindow(false)
     }, 700)
   }, [])
+
   const options = {
     disableDefaultUI: disableDefaultUI
   }
   const renderMap = () => {
-    return <div style={{position: 'relative', width: '100%'}}>
+    return <div style={{ position: 'relative', width: '100%' }}>
       { search && <Search panTo={ panTo } /> }
       <GoogleMap
         mapContainerStyle={ mapContainerStyle }

@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import { css } from "aphrodite/no-important"
 import { Button, FormikControl } from "../../../Components"
 import { Editor } from "../../../hooks/editor"
@@ -12,7 +13,7 @@ type CreatePostFormProps = {
 }
 
 export const CreatePostForm: React.FC<CreatePostFormProps> = ({ formik }) => {
-  const { values, setFieldValue } = formik
+  const { values: { type_material, isPrice, editor, tickets }, setFieldValue } = formik
   const options = [
     {
       id: 'new',
@@ -30,41 +31,35 @@ export const CreatePostForm: React.FC<CreatePostFormProps> = ({ formik }) => {
 
   return <>
     <div className={ css(baseStyles.flexVFS) }>
-      <div className={ css( values.type_material !== 'new' ? styles.wrapperBlock : styles.wrapperBlockNews)}>
+      <div className={ css( type_material !== 'new' ? styles.wrapperBlock : styles.wrapperBlockNews)}>
         <FormikControl control='radio' name='type_material' label='Тип матеріалу:' options={ options } />
         <div className={ css( inputStyles.inputWrapper, baseStyles.flex, styles.btnBlock ) }>
           <p className={ css( inputStyles.label, inputStyles.labelTouched ) }>Додати локацію:</p>
-          <Button nameBtn='Вибрати на карті' isSubmitting={ false } />
+          <Link href={ '/maps' }><a><Button nameBtn='Вибрати на карті' isSubmitting={ false } /></a></Link>
           <div className={ css(baseStyles.br) } />
-          <Button nameBtn='Створити локацію' isSubmitting={ false } />
+          <Link href={ '/create-location' } ><a><Button nameBtn='Створити локацію' isSubmitting={ false } /></a></Link>
         </div>
         <FormikControl control='input' id='image_loader' type='text' label='Обкладинка:' />
         <FormikControl control='input' id='title' type='text' label='Заголовок:' />
         <FormikControl control='input' id='tag' type='text' label='Теги:' />
       </div>
       {
-        values.type_material !== 'new' && <div className={ css(styles.container) }>
+        type_material !== 'new' && <div className={ css(styles.container) }>
           <div className={ css(baseStyles.flexSB) }>
             <p className={css( styles.text )}>Вхідний Квиток</p>
-            <FormikControl control='checkbox' id='isPrice' label='Вхід вільний' value='free' values={ values.isPrice } />
+            <FormikControl control='checkbox' id='isPrice' label='Вхід вільний' value='free' values={ isPrice } />
           </div>
-          <div>
-            <FormikControl control='inputGroup' />
-          </div>
-          {/*{ myInput( 'Дорослий:', 'adultTicket', 'number', values.adultTicket, true ) }*/}
-          {/*{ myInput( 'Дитячий:', 'childTicket', 'number', values.childTicket, true ) }*/}
-          {/*{ myInput( 'Студенський:', 'studentTicket', 'number', values.studentTicket, true ) }*/}
-          {/*{ myInput( 'Пенсійний:', 'pensionTicket', 'number', values.pensionTicket, true ) }*/}
+          { !isPrice[0] && <FormikControl control='inputGroup' id='tickets' valueMap={ tickets } /> }
         </div>
       }
     </div>
     {
-      values.type_material !== 'new' && <>
+      type_material !== 'new' && <>
         <FormikControl control='input' id='work_time' type='text' label='Час роботи:' />
         <FormikControl control='textarea' name='how_to_get_there' label='Як дістатися:' />
       </>
     }
-    <Editor editor={ values.editor } onChange={ setFieldValue } />
+    <Editor editor={ editor } onChange={ setFieldValue } />
     <div className={ css(loginStyles.inputSub, styles.submit) }>
       <Button type="submit" nameBtn='Зберегти' isSubmitting={ formik.isSubmitting } />
     </div>

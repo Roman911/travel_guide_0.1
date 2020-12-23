@@ -5,9 +5,13 @@ import { locationsUserQuery } from '../apollo/queries/locationsUser'
 import { Loading, MainLayout, ProfileMain } from "../Components"
 import withApollo from "../lib/withApollo"
 import { User } from '../types/user'
+import Redirect from "../hooks/useRedirect"
 
 const Profile: React.FC = (): any => {
   const user = useSelector((state: { user: User }) => state.user)
+  if (!user.data) {
+    return <Redirect to={ '/login' } />
+  }
   const [ nameSection, setNameSection ] = useState('wantToVisit')
   const { loading, error, data, refetch } = useQuery(locationsUserQuery, {
     variables: {

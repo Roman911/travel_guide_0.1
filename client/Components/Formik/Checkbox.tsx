@@ -7,13 +7,17 @@ import baseStyles from '../../styles'
 import styles from "./styles"
 
 type CheckboxProps = {
-  id: string
-  label: string
-  value: string
-  values: any
+  rest: {
+    id: string
+    label: string
+    value: string
+    values: any
+  }
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ id, label, value, values }) => {
+const Checkbox: React.FC<CheckboxProps> = ({ rest }) => {
+  const { id, label, value, values } = rest
+
   return <label className={ css(styles.text, styles.checkbox, baseStyles.flex) }>
     <Field type='checkbox' value={ value } name={ id } />
     <div className={ css(styles.checkboxInner, baseStyles.flexSB, values[0] === 'free' ? styles.checkboxInnerActive : null) } >
@@ -22,3 +26,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({ id, label, value, values }) 
     { label }
   </label>
 }
+
+export default Checkbox

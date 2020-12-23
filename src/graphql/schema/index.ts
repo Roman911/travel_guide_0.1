@@ -91,10 +91,7 @@ type Locations {
   coordinates: [String]
   isType: String
   createdAt: String
-  city: String
-  district: String
-  region: String
-  street: String
+  location: [String]
 }
 input LocationsInput {
   idAuthor: String
@@ -105,10 +102,7 @@ input LocationsInput {
   small_text: String
   coordinates: [String]
   isType: String
-  city: String
-  district: String
-  region: String
-  street: String
+  location: [String]
 }
 type LocationsUserList {
   _id: ID

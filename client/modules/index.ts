@@ -1,4 +1,5 @@
 export { CreateLocationSelector } from './CreateLocation/Containers/CreateLocationSelector'
+export { CreatePost } from './CreatePost/Containers/CreatePost'
 export { GoogleMaps } from './GoogleMaps/Containers/GoogleMaps'
 export { InformUserLocation } from './InformUserLocation/Containers/InformUserLocation'
 export { Likes } from './Likes/Containers/Likes'

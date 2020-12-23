@@ -5,11 +5,15 @@ import { TextError } from ".."
 import styles from "./styles"
 
 type TextAreaProps = {
-  name: string
-  label: string
+  rest: {
+    name: string
+    label: string
+  }
 }
 
-export const TextArea: React.FC<TextAreaProps> = ({ name, label }) => {
+const TextArea: React.FC<TextAreaProps> = ({ rest }) => {
+  const { name, label } = rest
+
   return <div className={ css(styles.wrapperTextarea) }>
     <Field id={ name } name={ name } >
       {({ field, form, ...rest }) => {
@@ -23,3 +27,5 @@ export const TextArea: React.FC<TextAreaProps> = ({ name, label }) => {
     <ErrorMessage name={ name } className='bottom' component={ TextError } />
   </div>
 }
+
+export default TextArea

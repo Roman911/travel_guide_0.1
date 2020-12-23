@@ -1,5 +1,5 @@
 import { StyleSheet } from 'aphrodite/no-important'
-import {borders, error, icons, isOk, text, btn, socSet} from "../../variabels"
+import { borders, error, icons, isOk, text, socSet } from "../../variabels"
 
 export default StyleSheet.create({
   // Input
@@ -99,5 +99,18 @@ export default StyleSheet.create({
   },
   textareaError: {
     bottom: 20
+  },
+  // InputGroup
+  field: {
+    borderBottom: `1px solid ${ borders.borderInput }`,
+    marginBottom: 10
+  },
+  filedIconPlus: {
+    fontSize: 11,
+    color: icons
+  },
+  filedIconMinus: {
+    fontSize: 20,
+    color: error
   }
 })

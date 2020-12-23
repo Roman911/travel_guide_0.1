@@ -1,19 +1,31 @@
-import { Checkbox, Input, InputGroup, Radio, Select, TextArea } from "./index"
+import dynamic from "next/dynamic"
+import React from "react"
+
+type Props = {
+  rest: any
+}
+
+const Checkbox = dynamic<Props>(() => import('./Checkbox') as any)
+const Input = dynamic<Props>(() => import('./Input') as any)
+const InputGroup = dynamic<Props>(() => import('./InputGroup') as any)
+const Select = dynamic<Props>(() => import('./Select') as any)
+const Radio = dynamic<Props>(() => import('./Radio') as any)
+const TextArea = dynamic<Props>(() => import('./Textarea') as any)
 
 export const FormikControl = ({ control, ...rest }) => {
   switch (control) {
     case 'checkbox':
-      return <Checkbox id={ rest.id } label={ rest.label } value={ rest.value } values={ rest.values } />
+      return <Checkbox rest={ rest } />
     case 'input':
-      return <Input id={ rest.id } type={ rest.type } label={ rest.label } />
+      return <Input rest={ rest } />
     case 'inputGroup':
-      return <InputGroup />
+      return <InputGroup rest={ rest } />
     case 'select':
-      return <Select id={ rest.id } label={ rest.label } options={ rest.options } />
+      return <Select rest={ rest } />
     case 'radio':
-      return <Radio name={ rest.name } label={ rest.label } options={ rest.options } />
+      return <Radio rest={ rest } />
     case 'textarea':
-      return <TextArea name={ rest.name } label={ rest.label } />
+      return <TextArea rest={ rest } />
     default:
       return null
   }

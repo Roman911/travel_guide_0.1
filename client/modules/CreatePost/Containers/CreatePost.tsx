@@ -11,11 +11,11 @@ import baseStyles from "../../../styles"
 import styles from "../Components/styles"
 import { CreatePostForm } from "../Components/CreatePostForm"
 
-export default function CreatePost() {
+export const CreatePost = () => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createPost ] = useMutation(addPostMutation)
-  const initialValues = { editor: '', type_material: 'post', title: '', image_loader: '', link: '', tag: '', price: '', small_text: '', coordinateY: '', coordinateX: '', location: '', work_time: '',  adultTicket: '', childTicket: '', studentTicket: '', pensionTicket: '', text: '', isPrice: ['free'], how_to_get_there: '' }
+  const initialValues = { editor: '', type_material: 'post', title: '', tickets: ['Дорослий: 50грн', 'Дитячий: 50грн', 'Студенський: 50грн', 'Пенсійний: 50грн'], image_loader: '', link: '', tag: '', price: '', small_text: '', coordinateY: '', coordinateX: '', location: '', work_time: '',  adultTicket: '', childTicket: '', studentTicket: '', pensionTicket: '', text: '', isPrice: ['free'], how_to_get_there: '' }
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(5, 'Коротка назва')
@@ -25,11 +25,6 @@ export default function CreatePost() {
   const onSubmit = (values, onSubmitProps) => {
     const tags = values.tag.split(' ')
     const coordinates = [ values.coordinateY, values.coordinateX ]
-    const tickets = []
-    values.adultTicket && tickets.push(`Дорослий: ${ values.adultTicket } грн`)
-    values.childTicket && tickets.push(`Дитячий: ${ values.childTicket } грн`)
-    values.studentTicket && tickets.push(`Студенський: ${ values.studentTicket } грн`)
-    values.pensionTicket && tickets.push(`Пенсійний: ${ values.pensionTicket } грн`)
     const idAuthor = data ? data.userId : null
     createPost({
       variables: {
@@ -39,7 +34,7 @@ export default function CreatePost() {
           title: values.title,
           link: values.link,
           tags: tags,
-          tickets: tickets,
+          tickets: values.tickets,
           small_text: values.small_text,
           coordinates: coordinates,
           location: values.location,

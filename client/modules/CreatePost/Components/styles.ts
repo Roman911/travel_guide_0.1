@@ -15,8 +15,7 @@ export default StyleSheet.create({
   container: {
     width: 350,
     margin: '10px 5px',
-    boxShadow: '2px 2px 4px 1px #a0a0a0',
-    paddingBottom: 15
+    boxShadow: '2px 2px 4px 1px #a0a0a0'
   },
   text: {
     padding: '15px 20px',

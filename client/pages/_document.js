@@ -20,12 +20,11 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en'>
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:200&display=swap&subset=cyrillic" />
         <link rel="icon" href={'/favicon.ico'} />
         <style data-aphrodite dangerouslySetInnerHTML={{__html: this.props.css.content}}/>
-        <title>Travel Guide</title>
       </Head>
       <body>
       <Main/>

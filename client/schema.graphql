@@ -46,17 +46,14 @@ type Event {
 
 type Locations {
   _id: ID!
-  city: String
   coordinates: [String]
   cover: String
   createdAt: String
-  district: String
   idAuthor: String
   isType: String
   linkToPost: String
-  region: String
+  location: [String]
   small_text: String
-  street: String
   tags: [String]
   title: String
 }
@@ -136,16 +133,13 @@ input EventInput {
 }
 
 input LocationsInput {
-  city: String
   coordinates: [String]
   cover: String
-  district: String
   idAuthor: String
   isType: String
   linkToPost: String
-  region: String
+  location: [String]
   small_text: String
-  street: String
   tags: [String]
   title: String
 }

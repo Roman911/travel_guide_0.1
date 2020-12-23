@@ -5,12 +5,16 @@ import { TextError } from ".."
 import styles from "./styles"
 
 type InputProps = {
-  id: string
-  type: string
-  label: string
+  rest: {
+    id: string
+    type: string
+    label: string
+  }
 }
 
-export const Input: React.FC<InputProps> = ({ id, type, label}) => {
+const Input: React.FC<InputProps> = ({ rest }) => {
+  const { id, type, label } = rest
+
   return <div className={ css(styles.inputWrapper) }>
     <Field id={ id } name={ id }>
       {({ field, form: { touched, errors }, ...rest }) => {
@@ -25,3 +29,5 @@ export const Input: React.FC<InputProps> = ({ id, type, label}) => {
     <ErrorMessage name={ id } className='left' component={ TextError } />
   </div>
 }
+
+export default Input

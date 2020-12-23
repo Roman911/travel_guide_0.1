@@ -23,7 +23,7 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createLocations ] = useMutation(addLocationMutation)
-  const initialValues = { title: '', cover: '', small_text: '', linkToPost: '', coordinateY: '0.00000', coordinateX: '0.00000', isType: 'other', region: '', district: '', city: '', street: '' }
+  const initialValues = { title: '', cover: '', small_text: '', linkToPost: '', coordinateY: '0.00000', coordinateX: '0.00000', isType: 'other', location: ['Київська обл.', 'м. Київ', 'вул. Хрещатик'] }
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(5, 'Коротка назва')
@@ -31,6 +31,7 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
       .required('Required')
   })
   const onSubmit = (values, onSubmitProps) => {
+    console.log(values)
     const coordinates = [ values.coordinateY, values.coordinateX ]
     const idAuthor = data ? data.userId : null
     createLocations({
@@ -43,10 +44,7 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
           small_text: values.small_text,
           coordinates: coordinates,
           isType: values.isType,
-          region: values.region,
-          district: values.district,
-          city: values.city,
-          street: values.street
+          location: values.location
         }
       }
     }).then(data => {

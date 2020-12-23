@@ -1,13 +1,13 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { borders, shadows, text } from '../variabels/colors'
+import { borders, shadows, text } from '../../../variabels'
 
 export default StyleSheet.create({
   wrapper: {
     position: 'absolute',
     zIndex: 10,
-    top: 20,
-    right: 20,
+    top: 60,
+    right: 10,
     width: 400
   },
   form: {

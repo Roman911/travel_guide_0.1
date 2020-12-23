@@ -10,12 +10,16 @@ type optionsProps = {
 }
 
 type RadioProps = {
-  name: string
-  label: string
-  options: [optionsProps]
+  rest: {
+    name: string
+    label: string
+    options: [optionsProps]
+  }
 }
 
-export const Radio: React.FC<RadioProps> = ({ name, label, options }) => {
+const Radio: React.FC<RadioProps> = ({ rest }) => {
+  const { name, label, options } = rest
+
   return <div className={ css(styles.inputWrapper) }>
     <label htmlFor={ name } className={ css(styles.label, styles.labelTouched) }>{ label }</label>
     <Field name={ name } >
@@ -44,3 +48,5 @@ export const Radio: React.FC<RadioProps> = ({ name, label, options }) => {
     </Field>
   </div>
 }
+
+export default Radio

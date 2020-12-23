@@ -9,10 +9,7 @@ type MyLocationsInputProps = {
   small_text: string
   coordinates: number[]
   isType: string
-  city: string
-  district: string
-  region: string
-  street: string
+  location: string[]
   isPrice: string
 }
 
@@ -53,11 +50,7 @@ module.exports = {
       small_text: locationsInput.small_text,
       coordinates: locationsInput.coordinates,
       isType: locationsInput.isType,
-      city: locationsInput.city,
-      district: locationsInput.district,
-      region: locationsInput.region,
-      street: locationsInput.street,
-      isPrice: locationsInput.isPrice
+      location: locationsInput.location
     })
     return await locations.save()
   }
