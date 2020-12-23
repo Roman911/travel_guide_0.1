@@ -42,3 +42,4 @@ confige.txt
 
 # vercel
 /client/.vercel
+/client/.next/
