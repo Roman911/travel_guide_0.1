@@ -1,1 +1,0 @@
-_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[21],{DyL4:function(n,t,o){"use strict";o.r(t);var u=o("nKUr"),e=o("5cwH");t.default=function(){return Object(u.jsx)(e.m,{title:"Routes",children:"routes"})}},"x/Y8":function(n,t,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/routes",function(){return o("DyL4")}])}},[["x/Y8",2,1,3,7,6,0,4,5]]]);
