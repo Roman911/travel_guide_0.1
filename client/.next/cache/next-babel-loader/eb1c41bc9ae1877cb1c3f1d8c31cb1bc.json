@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from 'redux';\nconst reducers = ['user', 'modal', 'sidebar'];\nexport default combineReducers(reducers.reduce((initial, name) => {\n  initial[name] = require(`./${name}`).default;\n  return initial;\n}, {}));","map":null,"metadata":{},"sourceType":"module"}

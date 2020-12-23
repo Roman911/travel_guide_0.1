@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const loginQuery = gql`\n  query login($email: String!, $password: String!) {\n    login(email: $email, password: $password) {\n      userId\n      token\n      tokenExpiration\n      avatar\n      name\n      email\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { StyleSheet } from 'aphrodite/no-important';\nexport default StyleSheet.create({\n  name: {\n    paddingBottom: 3,\n    fontSize: 16,\n    fontWeight: 600\n  },\n  crown: {\n    height: 13,\n    width: 'auto !important',\n    color: '#af5f0c',\n    margin: '0 6px 10px'\n  }\n});","map":null,"metadata":{},"sourceType":"module"}

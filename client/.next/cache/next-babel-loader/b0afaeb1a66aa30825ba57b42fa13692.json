@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { StyleSheet } from 'aphrodite/no-important';\nexport default StyleSheet.create({\n  time: {\n    fontSize: 12,\n    lineHeight: 1\n  }\n});","map":null,"metadata":{},"sourceType":"module"}

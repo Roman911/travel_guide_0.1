@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const addLocationMutation = gql`\n  mutation createLocations($locationsInput: LocationsInput) {\n    createLocations(locationsInput: $locationsInput) {\n      title\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

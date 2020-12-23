@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const removeLocationWithUserListMutation = gql`\n  mutation removeLocationWithUserList( $_id: ID! ) {\n    removeLocationWithUserList( _id: $_id ) {\n      _id\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const locationUserQuery = gql`\n  query locationUser($userId: ID!, $locationId: ID!) {\n    locationUser(userId: $userId, locationId: $locationId) {\n      _id\n      action\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { heightIcons, widthBlocks, widthsDescTop } from './dimensions';\nexport { background, borders, btn, icons, isOk, error, shadows, socSet, text } from './colors';","map":null,"metadata":{},"sourceType":"module"}

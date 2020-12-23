@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nimport React from \"react\";\nimport { PopularsBlock } from \"../Components/PopularsBlock\";\nexport var Populars = function Populars() {\n  return /*#__PURE__*/_jsx(PopularsBlock, {});\n};","map":null,"metadata":{},"sourceType":"module"}

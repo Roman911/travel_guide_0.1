@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { StyleSheet } from 'aphrodite/no-important';\nexport default StyleSheet.create({\n  wrapper: {\n    background: 'linear-gradient(90deg,#db4454,#9f406d)',\n    fontSize: 12,\n    padding: '3px 12px',\n    color: '#fff',\n    margin: '4px 0'\n  }\n});","map":null,"metadata":{},"sourceType":"module"}

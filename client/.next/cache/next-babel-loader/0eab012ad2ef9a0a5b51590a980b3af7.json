@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { StyleSheet } from 'aphrodite/no-important';\nexport default StyleSheet.create({\n  fontStyle: {\n    color: 'rgba(0,0,0,.2)',\n    fontSize: 60,\n    textTransform: 'uppercase',\n    letterSpacing: '1.65rem',\n    fontFamily: 'Montserrat, sans-serif',\n    margin: '10px 0'\n  }\n});","map":null,"metadata":{},"sourceType":"module"}

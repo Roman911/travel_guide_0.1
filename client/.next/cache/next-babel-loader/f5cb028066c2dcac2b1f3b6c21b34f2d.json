@@ -1,0 +1,1 @@
+{"ast":null,"code":"const Actions = {\n  setData: data => {\n    return {\n      type: 'USER:SET_DATA',\n      payload: data\n    };\n  },\n  registerData: data => {\n    return {\n      type: 'USER:REGISTER_DATA',\n      payload: data\n    };\n  }\n};\nexport default Actions;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nimport { MainLayout } from \"../Components\";\n\nvar Routes = function Routes() {\n  return /*#__PURE__*/_jsx(MainLayout, {\n    title: \"Routes\",\n    children: \"routes\"\n  });\n};\n\nexport default Routes;","map":null,"metadata":{},"sourceType":"module"}

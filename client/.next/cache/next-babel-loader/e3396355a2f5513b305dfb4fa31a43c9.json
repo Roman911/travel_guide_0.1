@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const widthsDescTop = {\n  widthXL: 1600,\n  widthL: 1380,\n  widthS: 760\n};\nexport const widthBlocks = {\n  newsBlock: 336,\n  rightBlock: 280,\n  locationSelect: 350\n};\nexport const heightIcons = {\n  iconXL: 20\n};","map":null,"metadata":{},"sourceType":"module"}

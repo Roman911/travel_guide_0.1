@@ -1,0 +1,1 @@
+{"ast":null,"code":"var Actions = {\n  setData: function setData(data) {\n    return {\n      type: 'USER:SET_DATA',\n      payload: data\n    };\n  },\n  registerData: function registerData(data) {\n    return {\n      type: 'USER:REGISTER_DATA',\n      payload: data\n    };\n  }\n};\nexport default Actions;","map":null,"metadata":{},"sourceType":"module"}

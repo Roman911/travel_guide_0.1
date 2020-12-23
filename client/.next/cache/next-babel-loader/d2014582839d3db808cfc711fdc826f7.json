@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { useRouter } from \"next/router\";\nimport { useEffect } from \"react\";\n\nfunction Redirect(_ref) {\n  var to = _ref.to;\n  var router = useRouter();\n  useEffect(function () {\n    router.push(to).then();\n  }, [to]);\n  return null;\n}\n\nexport default Redirect;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const sidebarMenuItems = [{\n  title: 'Профіль',\n  route: '/profile'\n}, {\n  title: 'Мої публікації',\n  route: '/profile-active'\n}, {\n  title: 'Налаштування',\n  route: '/settings'\n}, {\n  title: 'Обране',\n  route: '/selection'\n}];","map":null,"metadata":{},"sourceType":"module"}

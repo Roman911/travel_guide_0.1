@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const locationQuery = gql`\n  query location($_id: ID!) {\n    location(_id: $_id) {\n      _id\n      cover\n      title\n      small_text\n      linkToPost\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

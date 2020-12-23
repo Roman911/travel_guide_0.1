@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const locationsQuery = gql`\n  query locations {\n    locations {\n      _id\n      coordinates\n      isType\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

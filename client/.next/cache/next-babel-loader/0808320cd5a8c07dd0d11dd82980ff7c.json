@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from 'apollo-boost';\nexport const addPostMutation = gql`\n  mutation createPost($postInput: PostInput) {\n    createPost(postInput: $postInput) {\n      _id\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}
