@@ -5,6 +5,7 @@ export { InformUserLocation } from './InformUserLocation/Containers/InformUserLo
 export { Likes } from './Likes/Containers/Likes'
 export { LocationInformation } from './LocationInformation/Containers/LocationInformation'
 export { ModalSetting } from './ModalSetting/Containers/ModalSetting'
+export { News } from './News/Containers/News'
 export { Populars } from './Populars/Containers/Populars'
 export { PostShow } from './Post/Containers/Post'
 export { UseRoutes } from './Routes/Containers/Routes'

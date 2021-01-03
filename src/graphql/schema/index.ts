@@ -1,6 +1,7 @@
-const {buildSchema} = require('graphql')
+const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
+scalar FileUpload
 type Post {
     _id: ID!
     author: Author!
@@ -122,6 +123,12 @@ input UserInput {
   email: String!
   password: String!
 }
+type File {
+  id: ID!
+  filename: String!
+  mimetype: String!
+  path: String!
+}
 type RootQuery {
     events: [Event!]!
     posts: [Post!]!
@@ -148,6 +155,7 @@ type RootMutation {
     createComment(postId: ID!, idAuthor: ID!, text: String!): Comments
     addComment(_id: ID!, idAuthor: ID!, text: String!): Comments
     removeLocationWithUserList(_id: ID!): LocationsUserList
+    uploadFile(file: FileUpload!): File
 }
 schema {
     query: RootQuery

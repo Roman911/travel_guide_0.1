@@ -3,9 +3,9 @@ import { css } from 'aphrodite/no-important'
 import { useQuery } from "@apollo/react-hooks"
 import { getDataFromTree } from '@apollo/react-ssr'
 import withApollo from '../lib/withApollo'
-import { postsQuery, commentsQuery } from "../apollo/queries/posts"
-import { Populars } from "../modules"
-import {LoadingPost, MainLayout, News, SectionTitle} from "../Components"
+import { postsQuery } from "../apollo/queries/posts"
+import { News, Populars } from "../modules"
+import { MainLayout, SectionTitle } from "../Components"
 import styles from '../styles/news'
 
 const Home = () => {
@@ -14,13 +14,7 @@ const Home = () => {
   if  (error ) return `Error! ${error}`
   const { posts } = data
   const news = posts.map((item, index) => {
-    const { loading, error, data } = useQuery( commentsQuery, {
-      variables: { postId: item._id }
-    })
-    if (loading) return <LoadingPost key={ index } isPost={ false } />
-    if (error) return `Error! ${error}`
-    const { comments } = data
-    return <News key={ index } item={ item } comments={ comments } />
+    return <News key={ index } item={ item } />
   })
 
   return <MainLayout title='Home' header='Новини' >

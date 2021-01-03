@@ -7,13 +7,16 @@ const cors = require('cors')
 const graphQlSchema = require('./graphql/schema')
 const graphQlResolvers = require('./graphql/resolvers')
 const isAuth = require('./middlewares/is-auth')
+const { graphqlUploadExpress } = require('graphql-upload')
 
 const app = express()
 dotenv.config()
 
 app.use(cors())
 app.use(isAuth)
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql',
+  graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }),
+  graphqlHTTP({
   schema: graphQlSchema,
   rootValue: graphQlResolvers,
   graphiql: true,

@@ -4,7 +4,8 @@ export default StyleSheet.create({
   background: {
     color: '#fff',
     justifyContent: 'center',
-    margin: '0 auto'
+    margin: '0 auto',
+    background: 'linear-gradient(-60deg,#16a085,#f4d03f)'
   },
   imgAv: {
     borderRadius: '50%'
