@@ -7,6 +7,7 @@ import { ModalSetting } from "../../"
 import baseStyle from '../../../styles'
 import styles from './styles'
 import { Location } from '../../../types/locations'
+import {Images} from "../../../Components";
 
 type MyInformationProps = {
   location: Location
@@ -20,7 +21,7 @@ export const Information: React.FC<MyInformationProps> = ({ location, handleClic
 
   return <div className={ viewWindow }>
     <div className={ css(styles.blockImg) }>
-      <img className={ css(styles.cover) } src={ cover } alt=""/>
+      <Images styles={ styles.cover } link={ cover } alt={ title } height={ 100 } width={ 100 } />
     </div>
     <div className={ css(styles.block, baseStyle.flexSB) }>
       <FontAwesomeIcon onClick={ handleClick } className={ css(styles.icon) } icon={ faArrowLeft }/>

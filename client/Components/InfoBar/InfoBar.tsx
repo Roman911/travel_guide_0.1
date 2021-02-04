@@ -9,23 +9,12 @@ import baseStyles from '../../styles/'
 import styles from './styles'
 
 type MyInfoBarProps = {
-  coordinates: string
   tickets: string[]
-  location: string
   work_time: string
-  isType: string
+  location: string
 }
 
-export const InfoBar: React.FC<MyInfoBarProps> = ({ coordinates, tickets, location, work_time, isType }) => {
-  const mapContainerStyle = { height: "200px", width: "100%" }
-  const center = { lat: Number(coordinates[0]), lng: Number(coordinates[1]) }
-  const zoom = 11
-  const locations: any = {
-    lat: coordinates[0],
-    lng: coordinates[1],
-    isType: isType
-  }
-
+export const InfoBar: React.FC<MyInfoBarProps> = ({ tickets, work_time, location }) => {
   const viewTickets = tickets.length !== 0 && <div className={ css(styles.content) }>
     <div className={ css(baseStyles.flex, styles.block) }>
       <FontAwesomeIcon className={ css(baseStyles.icon) } icon={ faTicketAlt } />
@@ -36,17 +25,10 @@ export const InfoBar: React.FC<MyInfoBarProps> = ({ coordinates, tickets, locati
     })}
   </div>
 
-  return <section className={ css( baseStyles.boxShadow, styles.wrapper) }>
-    <Link href={{
-      pathname: '/maps',
-      query: {
-        lat: coordinates[0],
-        lng: coordinates[1],
-        isType: isType
-      }
-    }} >
+  return <section className={ css( styles.wrapper) }>
+    <Link href={ '/maps' } >
       <a>
-        <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } locations={ locations } disableDefaultUI={ true } search={ false } />
+        <GoogleMaps disableDefaultUI={ true } search={ false } />
       </a>
     </Link>
     <div className={ css(styles.content) }>

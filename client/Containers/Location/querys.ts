@@ -15,9 +15,6 @@ export const locationQuery = gql`
       _id
       title
       small_text
-      region
-      district
-      city
     }
   }
 `

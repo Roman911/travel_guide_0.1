@@ -105,12 +105,15 @@ export default StyleSheet.create({
     borderBottom: `1px solid ${ borders.borderInput }`,
     marginBottom: 10
   },
+  fieldOpacity05: {
+    opacity: 0.6
+  },
   filedIconPlus: {
-    fontSize: 11,
+    fontSize: 12,
     color: icons
   },
   filedIconMinus: {
-    fontSize: 20,
+    fontSize: 16,
     color: error
   }
 })

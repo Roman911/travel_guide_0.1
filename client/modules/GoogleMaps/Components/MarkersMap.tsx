@@ -6,17 +6,18 @@ type MarkersMapProps = {
 }
 
 const MarkersMap: React.FC<MarkersMapProps> = ({ rest }): any => {
-  const { locations, setSelectedPark } = rest.options
+  const { options, setSelectedPark } = rest
 
-  return locations.map((park, index) => {
+  return options.map((park, index) => {
+    const [ lat, lng ] = park.coordinates
     return <Marker
       key={ index }
       onClick={() => {
         setSelectedPark(park._id )
       }}
-      position={{lat: Number(park.coordinates[0]), lng: Number(park.coordinates[1])}}
+      position={{lat: Number(lat), lng: Number(lng)}}
       icon={{
-        url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${park.isType}.png`
+        url: `/assets/images/${park.isType}.png`
       }}
     />
   })

@@ -1,12 +1,11 @@
 import React from "react"
 import { css } from "aphrodite/no-important"
-import baseStyles from '../../styles'
 import styles from './styles'
 
 export const TextError = ({ className, children }) => {
 
   const element = ({ styleWrapper, triangle }) => {
-    return <div className={ css(baseStyles.boxShadow, styles.wrapper, styleWrapper) }>
+    return <div className={ css(styles.wrapper, styleWrapper) }>
       { children }
       <div className={ css(styles.triangle, triangle) }/>
     </div>

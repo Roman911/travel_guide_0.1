@@ -17,5 +17,6 @@ export const LocationInformation: React.FC<MyLocationInformationProps> = ({ _id,
   if (loading) return <Loading />
   if (error) return `Error! ${error}`
   const { location } = data
+
   return <Information location={ location } handleClick={ handleClick } closeWindow={ closeWindow } />
 }

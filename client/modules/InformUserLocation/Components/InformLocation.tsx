@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "aphrodite/no-important"
-import baseStyles from "../../../styles"
 import styles from "./styles"
 import { Button } from "../../../Components"
 
@@ -12,7 +11,6 @@ type InformLocationProps = {
 }
 
 export const InformLocation: React.FC<InformLocationProps> = ({ addLocationMyList, locationUser }): any => {
-
   const block = ( title: string, text: string, nameBtn?: string, action?: string ) => {
     return <div className={ css(styles.content) }>
       <p>{ title }</p>
@@ -21,7 +19,7 @@ export const InformLocation: React.FC<InformLocationProps> = ({ addLocationMyLis
     </div>
   }
 
-  return <section className={ css(baseStyles.boxShadow, styles.wrapper) }>
+  return <section className={ css(styles.wrapper) }>
     {
       locationUser?.action === 'visited' ?
         block(
@@ -42,7 +40,7 @@ export const InformLocation: React.FC<InformLocationProps> = ({ addLocationMyLis
           {block(
             'Були тут?',
             'Збережіть це місце в свому списку запланованих для відвідування місць.',
-            'Вже відвідав',
+            'Уже відвідав',
             'visited'
           )}
         </>

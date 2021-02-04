@@ -27,7 +27,7 @@ const Radio: React.FC<RadioProps> = ({ rest }) => {
         const { value } = field
         return <div className={ css(baseStyles.flex) }>
           {options.map((option, index) => {
-            const label = option.id === value ? css( styles.labelRadio, styles.labelActive, baseStyles.boxShadow) : css(styles.labelRadio)
+            const label = option.id === value ? css( styles.labelRadio, styles.labelActive, ) : css(styles.labelRadio)
             return <React.Fragment key={ index } >
               <input
                 className={ css(styles.inputRadio) }

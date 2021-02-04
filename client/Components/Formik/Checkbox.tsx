@@ -20,7 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ rest }) => {
 
   return <label className={ css(styles.text, styles.checkbox, baseStyles.flex) }>
     <Field type='checkbox' value={ value } name={ id } />
-    <div className={ css(styles.checkboxInner, baseStyles.flexSB, values[0] === 'free' ? styles.checkboxInnerActive : null) } >
+    <div className={ css(styles.checkboxInner, baseStyles.flexSB, values && styles.checkboxInnerActive) } >
       <FontAwesomeIcon className={ css(styles.iconCheck, baseStyles.flexSB) } icon={ faCheck } />
     </div>
     { label }

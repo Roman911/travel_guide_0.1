@@ -1,8 +1,8 @@
 import React from 'react'
-import Image from "next/image"
 import { css } from "aphrodite/no-important"
 import baseStyles from "../../styles"
 import styles from "./styles"
+import { Images } from "../Images/Images"
 
 type MyAvatarProps = {
   avatar: string
@@ -12,7 +12,7 @@ type MyAvatarProps = {
 
 export const Avatar = ({ avatar, name , size }: MyAvatarProps) => {
   const avatarIcon = avatar !== 'undefined' ?
-    <Image className={ css(styles.imgAv) } src={ `/assets/uploads${ avatar }` } layout='intrinsic' alt='avatar' width={100} height={100} /> :
+    <Images link={ `/assets/uploads${ avatar }` } styles={ styles.imgAv } alt='avatar' width={ 100 } height={ 100 } /> :
     <p>{ name[0].toUpperCase() }</p>
 
   let avatarSize

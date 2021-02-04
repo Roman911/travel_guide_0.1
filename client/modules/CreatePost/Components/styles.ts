@@ -12,10 +12,12 @@ export default StyleSheet.create({
   wrapperBlockNews: {
     width: '100%'
   },
+  wrapperPriceGroup: {
+    padding: '0 20px'
+  },
   container: {
     width: 350,
-    margin: '10px 5px',
-    boxShadow: '2px 2px 4px 1px #a0a0a0'
+    margin: '10px 5px'
   },
   text: {
     padding: '15px 20px',

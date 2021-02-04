@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from 'aphrodite/no-important'
-import baseStyles from '../../styles'
 import styles from './styles'
 
 interface LoadingPostProps {
@@ -9,7 +8,7 @@ interface LoadingPostProps {
 
 export const LoadingPost: React.FC<LoadingPostProps> = ({ isPost }) => {
   const widthContent = isPost ? styles.widthPost : styles.widthNews
-  return <section className={ css(baseStyles.boxShadow, styles.wrapper, styles.content, widthContent) }>
+  return <section className={ css(styles.wrapper, styles.content, widthContent) }>
     <div className={ css(styles.line, styles.line70) } />
     <div className={ css(styles.line, styles.line85) } />
     <div className={ css(styles.line, styles.line100) } />

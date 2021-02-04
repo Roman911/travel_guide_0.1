@@ -1,11 +1,18 @@
 import { Marker } from '@react-google-maps/api'
+import { useSelector } from 'react-redux'
+import { GoogleMapsProps } from "../../../types/googleMaps"
 
-const MarkerQuery = ({ rest }) => {
-  const { options } = rest
+const MarkerQuery = () => {
+  const { locations, isType }: any  = useSelector((state: { googleMaps: GoogleMapsProps }) => state.googleMaps)
+  const { lat, lng }: any = locations
+  const position = {
+    lat: Number(lat),
+    lng: Number(lng)
+  }
 
   return <Marker
-    position={{ lat: Number(options.lat), lng: Number(options.lng) }}
-    icon={ options.isType && options.isType !== 'other' ? { url: `http://326b53d9806dcac09833-a590b81c812a57d0f4b1c3b1d1b7a9ea.r50.cf3.rackcdn.com/markersIcon/${options.isType}.png` } : null }
+    position={ position }
+    icon={ isType && isType !== 'other' ? { url: `/assets/images/${isType}.png` } : null }
   />
 }
 

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { btn } from '../../../variabels/colors'
+import { socSet } from '../../../variabels'
 
 export default StyleSheet.create({
   text: {
@@ -10,10 +10,14 @@ export default StyleSheet.create({
   },
   icon: {
     height: 18,
-    padding: '2px 0'
+    padding: '2px 0',
+    transition: '200ms',
+    ':hover': {
+      transform: 'scale(1.2, 1.2)'
+    }
   },
   iconActive: {
-    color: btn
+    color: socSet.facebook
   },
   iconPost: {
     cursor: 'pointer'

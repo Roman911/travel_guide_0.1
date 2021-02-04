@@ -11,6 +11,6 @@ export const ShowAllComments: React.FC<MyShowCommentsProps> = ({ comments, postI
     return <ShowComment key={ index } _id={ item.idAuthor } date={ item.createdAt } text={ item.text } idComment={ item._id } comments={ item.comments } postId={ postId } />
   })
   return <section>
-    { comments.length !== 0 ? comment : <h4>Коментарів поки що немає</h4> }
+    { comments.length !== 0 ? comment : <h4>Коментарі ще ніхто не залишав. Будьте першим</h4> }
   </section>
 }

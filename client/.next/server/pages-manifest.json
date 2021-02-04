@@ -1,15 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/create-location": "pages/create-location.html",
-  "/create-post": "pages/create-post.html",
-  "/": "pages/index.js",
-  "/login": "pages/login.html",
-  "/maps": "pages/maps.js",
-  "/post/[id]": "pages/post/[id].js",
-  "/profile": "pages/profile.html",
-  "/registration": "pages/registration.html",
-  "/routes": "pages/routes.html",
   "/_error": "pages/_error.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/post/[id]": "pages/post/[id].js"
 }

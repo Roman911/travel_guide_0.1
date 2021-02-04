@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important'
 
-import { background, btn, icons } from '../../../variabels/colors'
+import { background, btn, icons } from '../../../variabels'
 
 const openModal = {
   'from': {

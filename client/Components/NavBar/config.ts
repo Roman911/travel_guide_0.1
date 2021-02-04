@@ -7,7 +7,7 @@ export const Links = {
     },
     {
       path: '/maps',
-      title: 'Карта',
+      title: 'Карти',
       route: 'Map'
     },
     {

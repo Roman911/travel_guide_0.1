@@ -37,7 +37,14 @@ export const CreatePostForm: React.FC<CreatePostFormProps> = ({ formik }) => {
           <p className={ css( inputStyles.label, inputStyles.labelTouched ) }>Додати локацію:</p>
           <Link href={ '/maps' }><a><Button nameBtn='Вибрати на карті' isSubmitting={ false } /></a></Link>
           <div className={ css(baseStyles.br) } />
-          <Link href={ '/create-location' } ><a><Button nameBtn='Створити локацію' isSubmitting={ false } /></a></Link>
+          <Link href={{
+            pathname: '/create-location',
+            query: {
+              isCreatePost: true
+            }
+          }}>
+            <a><Button nameBtn='Створити локацію' isSubmitting={ false } /></a>
+          </Link>
         </div>
         <FormikControl control='input' id='image_loader' type='text' label='Обкладинка:' />
         <FormikControl control='input' id='title' type='text' label='Заголовок:' />
@@ -47,9 +54,11 @@ export const CreatePostForm: React.FC<CreatePostFormProps> = ({ formik }) => {
         type_material !== 'new' && <div className={ css(styles.container) }>
           <div className={ css(baseStyles.flexSB) }>
             <p className={css( styles.text )}>Вхідний Квиток</p>
-            <FormikControl control='checkbox' id='isPrice' label='Вхід вільний' value='free' values={ isPrice } />
+            <FormikControl control='checkbox' id='isPrice' label='Вхід вільний' values={ isPrice } />
           </div>
-          { !isPrice[0] && <FormikControl control='inputGroup' id='tickets' valueMap={ tickets } /> }
+          <div className={ css(styles.wrapperPriceGroup) }>
+            <FormikControl control='inputGroup' id='tickets' isPrice={ isPrice } valueMap={ tickets } />
+          </div>
         </div>
       }
     </div>

@@ -6,7 +6,7 @@ import baseStyles from '../../../styles'
 import styles from './styles'
 
 export const PopularsBlock: React.FC = () => {
-  return <section className={ css(styles.wrapper, baseStyles.boxShadow) }>
+  return <section className={ css(styles.wrapper) }>
     <h4>ПОПУЛЯРНІ</h4>
     <Link href='/' >
       <a className={ css(baseStyles.flex, styles.link) }>

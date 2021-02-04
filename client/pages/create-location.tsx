@@ -1,30 +1,36 @@
-import React, { useCallback, useState } from "react"
+import React, {useCallback, useEffect, useState} from "react"
+import { useDispatch } from 'react-redux'
 import { css } from "aphrodite/no-important"
 import withApollo from "../lib/withApollo"
 import baseStyle from '../styles'
 import { MainLayout } from "../Components"
 import { GoogleMaps } from '../modules'
 import { CreateLocationSelector } from '../modules'
+import { googleMapsActions } from '../redux/actions'
 
 const CreateLocation =() => {
+  const dispatch = useDispatch()
+  const options = {
+    locations: null,
+    control: null,
+    center: { lat: 49.026151, lng: 31.483070 }
+  }
+
+  useEffect(() => {
+    dispatch(googleMapsActions.createLocation(options))
+  }, [])
+
   const [ latLng, setLatLnd ] = useState(null)
-  const [ isType, setIsType ] = useState(null)
-  const mapContainerStyle = { height: "calc(100vh - 200px)", width: '100%' }
-  const center = { lat: 49.026151, lng: 31.483070 }
-  const zoom = 6
   const click = useCallback((event) => {
     setLatLnd({
       coordinateY: event.latLng.lat(),
       coordinateX: event.latLng.lng()
     })
   }, [])
-  const isTypeSelect = (isType: string) => {
-    setIsType(isType)
-  }
   return <MainLayout title={'Create Location'} header='Редагування'>
-    <div className={ css(baseStyle.boxShadow, baseStyle.wrapperCreateLocation) }>
-      <GoogleMaps mapContainerStyle={ mapContainerStyle } center={ center } zoom={ zoom } disableDefaultUI={ false } click={ click } search={ true } isType={ isType } />
-      <CreateLocationSelector latLng={ latLng } isTypeSelect={ isTypeSelect } />
+    <div className={ css(baseStyle.wrapperCreateLocation) }>
+      <GoogleMaps disableDefaultUI={ false } click={ click } search={ true } />
+      <CreateLocationSelector latLng={ latLng } />
     </div>
   </MainLayout>
 }

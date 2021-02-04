@@ -8,7 +8,7 @@ import styles from './styles'
 import { Avatar, Button, Rating } from "../"
 import { UserData } from '../../types/user'
 import { ToVisit } from "./ToVisit"
-import {IconDefinition} from "@fortawesome/fontawesome-common-types"
+import { IconDefinition } from "@fortawesome/fontawesome-common-types"
 
 type ProfileMainProps = {
   data: UserData

@@ -7,7 +7,6 @@ import { useMutation } from "@apollo/react-hooks"
 import { User } from "../../../types/user"
 import { addPostMutation } from "../../../apollo/mutations/addPost"
 import { modalActions } from "../../../redux/actions"
-import baseStyles from "../../../styles"
 import styles from "../Components/styles"
 import { CreatePostForm } from "../Components/CreatePostForm"
 
@@ -15,7 +14,7 @@ export const CreatePost = () => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createPost ] = useMutation(addPostMutation)
-  const initialValues = { editor: '', type_material: 'post', title: '', tickets: ['Дорослий: 50грн', 'Дитячий: 50грн', 'Студенський: 50грн', 'Пенсійний: 50грн'], image_loader: '', link: '', tag: '', price: '', small_text: '', coordinateY: '', coordinateX: '', location: '', work_time: '',  adultTicket: '', childTicket: '', studentTicket: '', pensionTicket: '', text: '', isPrice: ['free'], how_to_get_there: '' }
+  const initialValues = { editor: '', type_material: 'post', title: '', tickets: ['Дорослий: 50грн', 'Дитячий: 50грн', 'Студенський: 50грн', 'Пенсійний: 50грн'], image_loader: '', link: '', tag: '', price: '', small_text: '', coordinateY: '', coordinateX: '', location: '', work_time: '',  adultTicket: '', childTicket: '', studentTicket: '', pensionTicket: '', text: '', isPrice: '', how_to_get_there: '' }
   const validationSchema = Yup.object({
     title: Yup.string()
       .min(5, 'Коротка назва')
@@ -54,7 +53,7 @@ export const CreatePost = () => {
       onSubmitProps.setSubmitting(false)
     })
   }
-  return <div className={css(baseStyles.boxShadow, styles.wrapper)}>
+  return <div className={css(styles.wrapper)}>
     <Formik initialValues={ initialValues } onSubmit={ onSubmit } validationSchema={ validationSchema } >
       {formik => {
         return <Form >

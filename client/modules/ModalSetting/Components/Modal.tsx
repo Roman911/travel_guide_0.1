@@ -18,7 +18,7 @@ export const Modal: React.FC<ModalProps> = ({ mapInformation, handleClick, close
   return <section className={css(styles.block)}>
     <FontAwesomeIcon onClick={ () => handleClick() } className={ css(baseStyles.icon, mapInformation ? styles.iconSettingMapInf : styles.iconSetting) } icon={ faCloudsmith }/>
     {showModalSetting &&
-    <section className={ css(baseStyles.boxShadow, styles.wrapper, closeModalSetting && styles.closeModal) }>
+    <section className={ css(styles.wrapper, closeModalSetting && styles.closeModal) }>
       <button onClick={ () => handleClick()} className={ css(styles.btn) }>
         <FontAwesomeIcon className={ css(styles.icon) } icon={ faTimes }/>
       </button>

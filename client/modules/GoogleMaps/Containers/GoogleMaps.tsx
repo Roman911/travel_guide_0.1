@@ -1,11 +1,12 @@
-import { useRouter } from "next/router"
 import dynamic from "next/dynamic"
-import React, { useCallback, useEffect, useRef, useState } from "react"
+import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useRef, useState } from "react"
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 import { Spin } from "../../../Components"
 import { LocationInformation } from "../../"
-import { Locations } from "../../../types/locations"
+import { GoogleMapsProps } from '../../../types/googleMaps'
 import { MarkersController } from '../Components/MarkersController'
+import { googleMapsActions } from '../../../redux/actions'
 
 type SearchProps = {
   panTo: any
@@ -16,55 +17,21 @@ const Search = dynamic<SearchProps>(() => import('../../Search/Containers/Search
 })
 
 type MyGoogleMapsProps = {
-  mapContainerStyle: { height: string, width: string }
-  center: { lat: number, lng: number }
-  zoom: number
-  locations?: Locations
   disableDefaultUI: boolean
   click?: (event) => any
   search: boolean
-  isType?: string | null
 }
 
 const libraries = ["places"]
 
-export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, center, zoom, locations, disableDefaultUI, click, search }) => {
+export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ disableDefaultUI, click, search }) => {
+  const dispatch = useDispatch()
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAPS_KAY,
     // @ts-ignore
     libraries
   })
-  const router = useRouter()
-  const [ marker, setMarker ] = useState( { control: 'null', options: null } )
-  const [ centerMap, setCenterMap ] = useState(null)
-
-  useEffect(() => {
-    setCenterMap(center)
-  }, [center])
-
-  useEffect(() => {
-    if (Object.keys(router.query).length !== 0) {
-      if (!router.query.id) {
-        setMarker({
-          control: 'MarkerQuery',
-          options: router.query
-        })
-      } else {
-        setMarker({
-          control: 'MarkerQuery',
-          options: locations
-        })
-      }
-    } else if (locations) {
-      setMarker({
-        control: 'MarkersMap',
-        options: {
-          setSelectedPark,
-          locations
-        }
-      })
-    }
-  }, [ router, locations ])
+  const { mapContainerStyle, center, zoom, locations, control } = useSelector((state: { googleMaps: GoogleMapsProps }) => state.googleMaps)
 
   const mapRef = useRef()
   const onMapLoad = useCallback((map) => {
@@ -75,10 +42,6 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
     mapRef.current.panTo({ lat, lng })
     // @ts-ignore
     mapRef.current.setZoom(12)
-    setMarker({
-      control: 'MarkerQuery',
-      options: center
-    })
   }, [])
 
   const [ selectedPark, setSelectedPark ] = useState<null | string>(null)
@@ -94,28 +57,31 @@ export const GoogleMaps: React.FC<MyGoogleMapsProps> = ({ mapContainerStyle, cen
   const options = {
     disableDefaultUI: disableDefaultUI
   }
+
   const renderMap = () => {
     return <div style={{ position: 'relative', width: '100%' }}>
       { search && <Search panTo={ panTo } /> }
       <GoogleMap
         mapContainerStyle={ mapContainerStyle }
         zoom={ zoom }
-        center={ centerMap }
+        center={ center }
         options={ options }
         onLoad={ onMapLoad }
         onClick={ click ? (event) => {
           click(event)
-          setMarker({
-            control: 'MarkerQuery',
-            options: {
-              lat: event.latLng.lat(),
-              lng: event.latLng.lng()
-            }
-          })
+          const locations = {
+            lat: event.latLng.lat(),
+            lng: event.latLng.lng()
+          }
+          const options = {
+            locations,
+            control: 'MarkerQuery'
+          }
+          dispatch(googleMapsActions.createLocation(options))
         } : null}
       >
         { selectedPark && <LocationInformation _id={ selectedPark } handleClick={ handleClick } closeWindow={ closeWindow } /> }
-        <MarkersController control={ marker.control } options={ marker.options } />
+        <MarkersController control={ control } options={ locations } setSelectedPark={ setSelectedPark } />
       </GoogleMap>
     </div>
   }

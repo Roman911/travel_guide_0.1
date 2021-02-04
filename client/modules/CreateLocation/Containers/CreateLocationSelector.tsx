@@ -5,21 +5,20 @@ import { useMutation } from '@apollo/react-hooks'
 import { css } from "aphrodite/no-important"
 import * as Yup from 'yup'
 import { addLocationMutation } from "./mutations"
-import { modalActions } from '../../../redux/actions'
-import baseStyle from '../../../styles'
+import { modalActions, googleMapsActions } from '../../../redux/actions'
 import styles from '../Components/styles'
 import { User } from "../../../types/user"
 import { CreateLocation } from "../Components/CreateLocation"
+import Redirect from "../../../hooks/useRedirect"
 
 type clsProps = {
   latLng: {
     coordinateY: number,
     coordinateX: number
   } | null
-  isTypeSelect: ( arg: string ) => void
 }
 
-export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelect }): any => {
+export const CreateLocationSelector: React.FC<clsProps> = ({ latLng }): any => {
   const dispatch = useDispatch()
   const { data } = useSelector((state: { user: User }) => state.user)
   const [ createLocations ] = useMutation(addLocationMutation)
@@ -31,7 +30,6 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
       .required('Required')
   })
   const onSubmit = (values, onSubmitProps) => {
-    console.log(values)
     const coordinates = [ values.coordinateY, values.coordinateX ]
     const idAuthor = data ? data.userId : null
     createLocations({
@@ -51,6 +49,7 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
       if (data) {
         dispatch(modalActions.showModal('Локація успішно добавлена!'))
         onSubmitProps.resetForm()
+        return <Redirect to={ '/login' } />
       }
       onSubmitProps.setSubmitting(false)
     }).catch( () => {
@@ -67,13 +66,13 @@ export const CreateLocationSelector: React.FC<clsProps> = ({ latLng, isTypeSelec
     }, [latLng])
     useEffect(() => {
       // @ts-ignore
-      isTypeSelect(values.isType)
+      dispatch(googleMapsActions.changeIsType(values.isType))
       // @ts-ignore
     }, [values.isType])
     return null
   }
 
-  return <div className={css(baseStyle.boxShadow, styles.wrapper)}>
+  return <div className={ css(styles.wrapper) }>
     <Formik initialValues={ initialValues } onSubmit={ onSubmit } validationSchema={ validationSchema }>
       {formik => {
         return <Form>
